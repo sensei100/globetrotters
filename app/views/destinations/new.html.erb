@@ -1,0 +1,16 @@
+<h1>New Destination</h1><br>
+
+<%= form_for :destination, url: destinations_path do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %><br>
+  
+  <%= f.label :rating %>
+  <%= f.text_field :rating %><br>
+
+  <%= f.label :review %>
+  <%= f.text_area :review %><br>
+
+  <%= f.submit %>
+
+<% end %>
