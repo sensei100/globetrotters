@@ -12,6 +12,10 @@ class DestinationsController < ApplicationController
     @destination = Destination.new
   end
 
+  def edit
+    @destination = Destination.find(params[:id])
+  end
+
   def create
     @destination = Destination.new(destination_params)
     
@@ -19,6 +23,16 @@ class DestinationsController < ApplicationController
       redirect_to @destination
     else
       render 'new'
+    end
+  end
+
+  def update
+    @destination = Destination.find(params[:id])
+
+    if @destination.update(destination_params)
+      redirect_to @destination
+    else
+      render 'edit'
     end
   end
 
