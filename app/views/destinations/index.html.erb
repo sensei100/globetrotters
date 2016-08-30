@@ -1,0 +1,12 @@
+<h1>Destinations</h1>
+
+<%= link_to 'Add New Destination', new_destination_path %>
+
+  <% @destinations.each do |destination| %>
+    <div>
+      <%= destination.name %>
+      <%= destination.region %>
+      <%= destination.country %>
+      <%= link_to 'Show Destination', destination_path(destination) %>  
+  <% end %> 
+    </div>
