@@ -13,6 +13,26 @@
   <%= @destination.country %>
 </p>
 
+<h2>Comments</h2>
+<% @destination.comments.each do |comment| %>
+  <p>
+    <strong>Comment:</strong>
+    <%= comment.content %>
+  </p>
+<% end %>
+
+<h2>Add a comment:</h2>
+<%= form_for([@destination, @destination.comments.build]) do |f| %>
+
+  <p>
+    <%= f.label :content %><br>
+    <%= f.text_area :content %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
 <%= link_to "Edit Destination", edit_destination_path(@destination) %><br>
 <%= link_to "Remove Destination", destination_path(@destination), method: :delete, data: { confirm: 'Are you sure?' } %>
 <%= link_to "See all destinations", destinations_path %>
