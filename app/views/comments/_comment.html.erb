@@ -3,4 +3,10 @@
     <strong>Comment:</strong>
     <%= comment.content %>
   </p>
+
+  <p>
+    <%= link_to 'Delete Comment', [comment.destination, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
+  </p>
+  
 <% end %>
+
