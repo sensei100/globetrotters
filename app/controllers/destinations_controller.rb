@@ -9,12 +9,17 @@ class DestinationsController < ApplicationController
   end
 
   def new
+    @destination = Destination.new
   end
 
   def create
     @destination = Destination.new(destination_params)
-    @destination.save
-    redirect_to @destination
+    
+    if @destination.save
+      redirect_to @destination
+    else
+      render 'new'
+    end
   end
 
 
