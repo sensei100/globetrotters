@@ -1,32 +1,5 @@
 <h1>Edit Destination</h1><br>
 
-<%= form_for :destination, url: destinations_path(@destination), method: :patch do |f| %>
-
-  <% if @destination.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@destination.errors.count, "error") %> prohibited
-        this destination from being saved:
-      </h2>
-      <ul>
-        <% @destination.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <%= f.label :name %>
-  <%= f.text_field :name %><br>
-  
-  <%= f.label :region %>
-  <%= f.text_field :region %><br>
-
-  <%= f.label :country %>
-  <%= f.text_field :country%><br>
-
-  <%= f.submit %>
-
-<% end %>
+<%= render 'form' %>
 
 <%= link_to 'Back', destinations_path %>
