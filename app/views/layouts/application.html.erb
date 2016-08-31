@@ -9,20 +9,19 @@
 <body>
   <header class="navbar navbar-fixed-top navbar-inverse">
     <div class="container">
-      <%= link_to "Globetrotters", "", class: "btn btn-lg btn-success", id: "logo" %>
+      <%= link_to "Globetrotters", "", class: "nav-brand", id: "logo" %>
       <div class="nav_item">
-        <%= link_to "link 1", "", class: "btn btn-default btn-info" %>
-         <%= link_to "link 2", "", class: "btn btn-default btn-info" %>
-          <%= link_to "link 3", "", class: "btn btn-default btn-info" %>
+        <%= link_to "Destinations", "", class: "navbar_links" %>
+        <%= link_to "Reviews", "", class: "navbar_links" %>
+        <%= link_to "link 3", "", class: "navbar_links" %>
       </div>
     </div>
   </header>
-<div class="container">
+
 <%= yield %>
 
 <div class="footer">
   <p>&copy; Globetrotters 2016</p>
-</div>
 </div>
 </body>
 </html>

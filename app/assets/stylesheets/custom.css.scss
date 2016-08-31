@@ -1,3 +1,5 @@
+$navbar-inverse-bg: #283D3E;
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
@@ -7,7 +9,8 @@
   float: left;
   margin_right: 10px;
   font-size: 2em;
-  color: #fff;
+  color: #D6C496;
+  font-family: 'Sue Ellen Francisco', cursive;
   text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
@@ -15,7 +18,7 @@
 }
 
 #logo:hover {
-  color: white;
+  color: #D62E2E;
   text-decoration: none;
 }
 
@@ -24,20 +27,42 @@ body {
 }
 
 .nav_item {
-  margin-left: 25px;
+  margin-left: 100px;
   padding-right: 5px;
   float: left;
-  margin-top: 20px;
+  margin-top: 25px;
+}
+
+.navbar_links {
+  font-family: 'Sue Ellen Francisco', cursive;
+  line-height: 1;
+  font-size: 1.5em;
+  margin-right: 50px;
+  color: white;
+}
+
+.navbar_links:hover {
+  text-decoration: none;
+  color: #D62E2E;
 }
 
 .center {
   text-align: center;
-  height: 500px;
-  background-image: url("")
+  height: 600px;
+  background-image: url("tuscany-7.jpg");
+  background-size: cover;
+  margin-top: -10px;
+  color: white;
 }
 
-h1, h2, h3, h4 {
+h1, h2 {
   line-height: 1;
+  font-family: 'Sue Ellen Francisco', cursive;
+}
+
+h3, h4 {
+  line-height: 1;
+  font-family: 'Lato', sans-serif;
 }
 
 h1 {
@@ -45,6 +70,7 @@ h1 {
   letter-spacing: -2px;
   text-align: center;
   margin-bottom: 30px;
+
 }
 
 h2 {
@@ -55,6 +81,14 @@ h2 {
   color: #777;
 }
 
+p {
+  font-family: 'Lato', sans-serif;
+}
+
+.intro {
+  margin-bottom: 30px;
+}
+
 .left {
   text-align: left;
   letter-spacing: .5px;
@@ -63,5 +97,6 @@ h2 {
 
 .footer {
   margin-top: 25px;
-  border-top: 1px solid #eaeaea;
+  border-top: 1px solid #D6C496;
+  text-align: center;
 }
