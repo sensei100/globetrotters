@@ -1,11 +1,15 @@
-<h1>Destinations</h1>
+<div class="dest_index jumbotron">
 
+<h1>Destinations</h1>
+<h3>Find by country (alphabetically):</h3>
 <%= button_to 'Add New Destination', new_destination_path, class: "btn btn-lg btn-primary add_dest" %>
+
+</div>
 
   <% @destinations.each do |destination| %>
     <div>
-      <p class="country"><%= destination.country %>
-      <%= link_to destination.name, destination_path(destination), class: "dest_name" %></p>
+      <p class="country"><%= destination.country %></p>
+      <p><%= link_to destination.name, destination_path(destination), class: "dest_name" %></p>
       
       
       

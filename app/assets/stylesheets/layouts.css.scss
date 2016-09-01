@@ -43,7 +43,7 @@ body {
 
 .navbar_links:hover {
   text-decoration: none;
-  color: #D62E2E;
+  color: #D6C496;
 }
 
 .center {
@@ -119,11 +119,35 @@ p {
 }
 
 .country {
-  font-size: 20px;
+  font-size: 1.6em;
   margin-top: 20px;
-  margin-left: 50px;
+  margin-left: 150px;
+  text-transform: uppercase;
 }
 
 .add_dest {
-  margin-left: 50px;
+margin-top: 10px;
+  margin-bottom: 50px;
+}
+
+.dest_name {
+  margin-left: 175px;
+  font-size: 1.4em;
+  color: #48586F;
+}
+
+.dest_name:hover {
+  text-decoration: none;
+  color: #D6C496;
+}
+
+.dest_index {
+  text-align: center;
+  height: 350px;
+  background-image: url("elephants.jpg");
+  background-size: cover;
+  margin-top: -10px;
+  color: white;
+  border-bottom: 5px solid #48586F;
+  
 }
