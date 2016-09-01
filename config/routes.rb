@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :destinations do
+  resources :destinations 
+  resources :reviews do
     resources :comments
   end
   get 'welcome/index'
