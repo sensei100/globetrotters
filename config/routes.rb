@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  resources :destinations 
-  resources :reviews do
-    resources :comments
+  resources :destinations do
+    resources :reviews, :comments 
   end
+  resources :reviews
   get 'welcome/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
