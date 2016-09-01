@@ -4,7 +4,7 @@ $navbar-inverse-bg: #283D3E;
 @import "bootstrap";
 
 #logo {
-  margin-top: 10px;
+  margin-top: 15px;
   margin-bottom: 10px;
   float: left;
   margin_right: 10px;
@@ -27,10 +27,10 @@ body {
 }
 
 .nav_item {
-  margin-left: 100px;
+  margin-left: 20%;
   padding-right: 5px;
   float: left;
-  margin-top: 25px;
+  margin-top: 15px;
 }
 
 .navbar_links {
@@ -70,6 +70,7 @@ h1 {
   letter-spacing: -2px;
   text-align: center;
   margin-bottom: 30px;
+  
 
 }
 
@@ -92,11 +93,21 @@ p {
 .left {
   text-align: left;
   letter-spacing: .5px;
-
 }
 
 .footer {
   margin-top: 25px;
   border-top: 1px solid #D6C496;
   text-align: center;
+  padding-top: 10px;
+}
+
+#signup {
+  margin-left: 200px;
+  margin-bottom: 20px;
+  margin-right: 10px;
+}
+
+#signup, #login {
+  margin-bottom: 20px;
 }

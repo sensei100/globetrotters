@@ -5,23 +5,13 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
 </head>
 <body>
-  <header class="navbar navbar-fixed-top navbar-inverse">
-    <div class="container">
-      <%= link_to "Globetrotters", "", class: "nav-brand", id: "logo" %>
-      <div class="nav_item">
-        <%= link_to "Destinations", "", class: "navbar_links" %>
-        <%= link_to "Reviews", "", class: "navbar_links" %>
-        <%= link_to "link 3", "", class: "navbar_links" %>
-      </div>
-    </div>
-  </header>
 
+<%= render 'layouts/navigation' %>
 <%= yield %>
 
-<div class="footer">
-  <p>&copy; Globetrotters 2016</p>
-</div>
+<%= render 'layouts/footer' %>
 </body>
 </html>
