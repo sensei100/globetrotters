@@ -1,5 +1,5 @@
 <div class="container user_page">
-<h2>Log in</h2>
+<h1>Log in</h1>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
@@ -24,19 +24,11 @@
       <%= f.label :remember_me %>
     </div>
   <% end -%>
-
   <div class="actions">
     <%= f.submit "Log in", class: "btn btn-lg btn-info", id: "login" %>
   </div>
 <% end %>
-
   <br>
-  <br>
-  <p>Are you a new user? Click below to create an account.<br>  
-  <%= link_to 'Signup', new_user_registration_path, class: "btn btn-lg btn-success" %></p>
-  <br>
-  <p>Click here to login with your Facebook account.<br>
-  <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path, class: "btn btn-lg btn-primary", id: "facebook_login" %>
-  </p>
-
+  <%= render 'devise/shared/links' %>
+  
 </div>

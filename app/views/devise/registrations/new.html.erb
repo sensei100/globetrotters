@@ -31,14 +31,9 @@
     <div class="actions">
       <%= f.submit "Sign up", :class => "btn btn-lg btn-success" %>
     </div>
+    <% end %>
     <br>
     <br>
-    <p>Already have an account?<br>  
-    <%= link_to 'Login', user_session_path, class: "btn btn-lg btn-info", id: "login" %></p>
-    <br>
-    <p>Click here to login with your Facebook account.<br>
-    <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path, class: "btn btn-lg btn-primary", id: "facebook_login" %>
-    </p>
+    <%= render 'devise/shared/links' %>
 
-  <% end %>
 </div>
