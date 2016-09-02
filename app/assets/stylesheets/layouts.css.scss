@@ -27,7 +27,7 @@ body {
 }
 
 .nav_item {
-  margin-left: 20%;
+  margin-left: 15%;
   padding-right: 5px;
   float: left;
   margin-top: 15px;
@@ -101,13 +101,14 @@ p {
 }
 
 #signup {
-  margin-left: 200px;
+  margin-left: 50px;
   margin-bottom: 20px;
-  margin-right: 10px;
+  
 }
 
-#signup, #login {
+#signup, #login, #facebook_login {
   margin-bottom: 20px;
+  margin-right: 10px;
 }
 
 .midrow {
