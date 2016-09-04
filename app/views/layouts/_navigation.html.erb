@@ -4,7 +4,7 @@
       <div class="nav_item">
         <%= link_to "Destinations", destinations_path, class: "navbar_links" %>
         <%= link_to "Reviews", reviews_path, class: "navbar_links" %>
-        <%= link_to "Tips", "", class: "navbar_links" %>
+        <%= link_to "Tips", tips_path, class: "navbar_links" %>
         
         <% if !user_signed_in? %>
           <%= link_to 'Signup', new_user_registration_path, class: "btn btn-lg btn-success", id: "signup" %> 

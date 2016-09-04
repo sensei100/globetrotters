@@ -1,0 +1,13 @@
+<div class="container">
+
+  <h1>Travel Tips</h1>
+
+  <%= link_to 'New Travel Tip', new_tip_path, class: "btn btn-lg btn-primary add_dest" %>
+
+  <% @tips.each do |tip| %>
+    <div>
+      <p class="tip"><%= tip.content %></p>
+      <p><%= link_to tip.content, tip_path(tip), class: "dest_name" %></p> 
+      </div>
+
+</div>
