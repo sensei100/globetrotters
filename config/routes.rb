@@ -6,8 +6,7 @@ Rails.application.routes.draw do
   resources :reviews
   get 'welcome/index'
 
-
-   root 'welcome#index'
+  root 'welcome#index'
 
  
 end

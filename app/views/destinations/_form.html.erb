@@ -1,11 +1,11 @@
 <%= form_for @destination do |f| %>
 
   <% if @destination.errors.any? %>
-    <div id="error_explanation">
-      <h2>
+    <div id="error_explanation" class="fields_with_errors">
+      <h3>
         <%= pluralize(@destination.errors.count, "error") %> prohibited
         this destination from being saved:
-      </h2>
+      </h3>
       <ul>
         <% @destination.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
@@ -15,15 +15,17 @@
   <% end %>
 
   <%= f.label :name %>
-  <%= f.text_field :name %><br>
+  <%= f.text_field :name, :class => "text_field"  %><br><br>
   
   <%= f.label :region %>
-  <%= f.text_field :region %><br>
+  <%= f.text_field :region, :class => "text_field"  %><br><br>
 
   <%= f.label :country %>
-  <%= f.text_field :country%><br>
+  <%= f.text_field :country, :class => "text_field" %><br><br>
 
-  <%= f.submit %>
+  <div class="actions">
+    <%= f.submit "Add New Destination", class: "btn btn-lg btn-primary" %>
+  </div>
 
 <% end %>
 
