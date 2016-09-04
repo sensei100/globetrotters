@@ -1,0 +1,27 @@
+<%= form_for @tip do |f| %>
+
+  <% if @tip.errors.any? %>
+    <div id="error_explanation" class="fields_with_errors">
+      <h3>
+        <%= pluralize(@tip.errors.count, "error") %> prohibited
+        this destination from being saved:
+      </h3>
+      <ul>
+        <% @tip.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name, :class => "text_field"  %><br><br>
+  
+  <%= f.label :content %>
+  <%= f.text_area :content, :class => "text_area"  %><br><br>
+
+  <div class="actions">
+    <%= f.submit "Add Travel Tip", class: "btn btn-lg btn-primary" %>
+  </div>
+
+<% end %>

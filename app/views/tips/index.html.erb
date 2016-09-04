@@ -6,8 +6,7 @@
 
   <% @tips.each do |tip| %>
     <div>
-      <p class="tip"><%= tip.content %></p>
-      <p><%= link_to tip.content, tip_path(tip), class: "dest_name" %></p> 
-      </div>
-
+      <p><%= link_to tip.name, tip_path(tip), class: "dest_name" %></p> 
+    </div>
+  <% end %>
 </div>
