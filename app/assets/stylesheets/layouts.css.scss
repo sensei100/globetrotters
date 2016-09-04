@@ -192,11 +192,7 @@ label {
   font-weight: bold;
 }
 
-.fields_with_errors {
+.fields_with_errors, .error_explanation {
   margin-left: 25%;
   color: red;
-}
-
-p .fields_with_errors {
-  
 }

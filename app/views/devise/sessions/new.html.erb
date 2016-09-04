@@ -3,14 +3,16 @@
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
+    <%= render 'devise/shared/errors' %>
+
   <div class="field">
     <%= f.label :name %>
-    <%= f.text_field :name, :class => "text_field" %>
+    <%= f.text_field :name, autofocus: true, :class => "text_field" %>
   </div>
 
   <div class="field">
     <%= f.label :email %>
-    <%= f.email_field :email, autofocus: true, :class => "text_field" %>
+    <%= f.email_field :email, :class => "text_field" %>
   </div>
 
   <div class="field">

@@ -1,9 +1,9 @@
 <h1>Sign up</h1>
 
-
+ <%= render 'devise/shared/errors' %>
 <div class="container user_page">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= devise_error_messages! %>
+   
 
     <div class="field">
       <%= f.label :name %>
