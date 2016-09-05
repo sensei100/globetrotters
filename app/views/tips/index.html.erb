@@ -1,9 +1,11 @@
-<div class="container">
+<div class="tips_index jumbotron">
 
   <h1>Travel Tips</h1>
+  <h3>Get advice from fellow travelers to make your vacation as smooth as possible.</h3>
 
   <%= link_to 'New Travel Tip', new_tip_path, class: "btn btn-lg btn-primary add_dest" %>
-
+</div>
+<div class="container">
   <% @tips.each do |tip| %>
     <div>
       <p><%= link_to tip.name, tip_path(tip), class: "dest_name" %></p> 
