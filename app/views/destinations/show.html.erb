@@ -15,9 +15,9 @@
       <%= @destination.country %>
       </h3>
 
-      <%= button_to "Edit Destination", edit_destination_path(@destination), class: "btn btn-info btn-small dest_button" %><br>
+      <%= link_to "Edit Destination", edit_destination_path(@destination), class: "btn btn-info btn-small dest_button" %><br><br>
       <%= button_to "Remove Destination", destination_path(@destination), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-warning btn-small dest_button" %><br>
-      <%= button_to "See all destinations", destinations_path, class: "btn btn-success btn-small dest_button" %>
+      <%= link_to "See all destinations", destinations_path, class: "btn btn-success btn-small dest_button" %>
     </div>
   
     <div class="col-lg-4">
