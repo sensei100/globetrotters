@@ -9,7 +9,11 @@ class TipsController < ApplicationController
   end
 
   def new
-    @tip = Tip.new
+    if !current_user
+      redirect_to tips_path, alert: "You must be logged in to add a travel tip"
+    else
+      @tip = Tip.new
+    end
   end
 
   def create

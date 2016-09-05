@@ -9,7 +9,11 @@ class DestinationsController < ApplicationController
   end
 
   def new
-    @destination = Destination.new
+    if !current_user
+      redirect_to destinations_path, alert: "You must be logged in to add a destination"
+    else
+      @destination = Destination.new
+    end
   end
 
   def edit
