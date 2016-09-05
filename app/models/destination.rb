@@ -10,12 +10,10 @@ class Destination < ActiveRecord::Base
 
   scope :alphabetically, -> { order("country ASC") }
 
-  def reviews_attributes=(review_attributes)
-    review_attributes.values.each do |attributes|
-      if !blank_hash_values?(attributes)
-        review = Review.find_or_create_by(attributes)
-        self.reviews << review
+  def reviews_attributes=(reviews_attributes)
+    reviews_attributes.each do |i, review_attributes|
+      review = Review.find_or_create_by(rating: review_attributes[:rating], content: review_attributes[:content])
+        self.comments.build(:review => review)
       end
-    end
   end
 end

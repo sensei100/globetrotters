@@ -49,7 +49,7 @@ class DestinationsController < ApplicationController
   private
 
   def destination_params
-    params.require(:destination).permit(:name, :region, :country, review_attributes: [:rating, :content])
+    params.require(:destination).permit(:name, :region, :country, review_ids: [], reviews_attributes: [:rating, :content])
   end
 
 end
