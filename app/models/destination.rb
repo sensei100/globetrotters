@@ -9,4 +9,13 @@ class Destination < ActiveRecord::Base
   validates :region, presence: true
 
   scope :alphabetically, -> { order("country ASC") }
+
+  def reviews_attributes=(review_attributes)
+    review_attributes.values.each do |attributes|
+      if !blank_hash_values?(attributes)
+        review = Review.find_or_create_by(attributes)
+        self.reviews << review
+      end
+    end
+  end
 end

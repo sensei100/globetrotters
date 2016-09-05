@@ -23,9 +23,17 @@
   <%= f.label :country %>
   <%= f.text_field :country, :class => "text_field" %><br><br>
 
+  <%= f.fields_for :reviews, @destination.reviews.build do |r| %>
+
+    <%= r.label :rating %>
+    <%= r.text_field :rating, class: "text_field" %><br><br>
+
+    <%= r.label :content %>
+    <%= r.text_area :content, class: "text_area" %><br><br>
+
   <div class="actions">
     <%= f.submit "Add New Destination", class: "btn btn-lg btn-primary" %>
   </div>
-
+  <% end %>
 <% end %>
 
