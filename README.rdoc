@@ -1,28 +1,15 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is my rails assessment project for the Learn Verified program.
 
-Things you may want to cover:
+"Globetrotters" is meant to be an app where people can connect to share their travel stories and get advice from other users about upcoming trips.
 
-* Ruby version
+To run, download the repo.
 
-* System dependencies
+Run the rails server by typing rails s in the terminal.  Then open you r browser and go to http://localhost:3000.
 
-* Configuration
+You can create an account or login with Facebook.
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Anyone can read the reviews and destinations, but you must be logged in if you want to write your own review or travel tip.
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
