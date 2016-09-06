@@ -21,8 +21,11 @@
     </div>
   
     <div class="col-lg-4">
-      <h3 class="show_subheading">Review</h3>
-      <p>Rating:</p>
+      <h3 class="show_subheading">Review</h3> 
+      <% @destination.reviews.each do |r| %>
+        <h4 id="rating">Rating: <%= r.rating %></h4>
+        <p><%= r.content %></p>
+      <% end %>
     </div>
 
     <div class="col-lg-4">
