@@ -1,8 +1,7 @@
 class ReviewsController < ApplicationController
 
   def index
-    @destination = Destination.find(params[:destination_id])
-    @reviews = @destination.all
+    @reviews = Review.all
   end
 
 end
