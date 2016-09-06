@@ -21,6 +21,7 @@ class DestinationsController < ApplicationController
   end
 
   def create
+    destination_params[:reviews_attributes].merge(user_id: current_user.id)
     @destination = Destination.new(destination_params)
     
     if @destination.save
@@ -49,7 +50,7 @@ class DestinationsController < ApplicationController
   private
 
   def destination_params
-    params.require(:destination).permit(:name, :region, :country, review_ids: [], reviews_attributes: [:rating, :content])
+    params.require(:destination).permit(:name, :region, :country, review_ids: [], reviews_attributes: [:rating, :content, :user_id])
   end
 
 end
