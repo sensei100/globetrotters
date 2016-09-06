@@ -1,7 +1,5 @@
 class CommentsController < ApplicationController
 
-  http_basic_authenticate_with name: "dhh", password: "secret", only: :destroy
-
   def create
     @destination = Destination.find(params[:destination_id])
     @comment = @destination.comments.create(comment_params)
