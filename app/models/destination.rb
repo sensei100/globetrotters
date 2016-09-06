@@ -11,9 +11,8 @@ class Destination < ActiveRecord::Base
   scope :alphabetically, -> { order("country ASC") }
 
   def reviews_attributes=(reviews_attributes)
-    reviews_attributes.each do |i, review_attributes|
-      review = Review.find_or_create_by(rating: review_attributes[:rating], content: review_attributes[:content])
-        self.comments.build(:review => review)
-      end
+    reviews_attributes.values.each do |review_attributes|
+      self.reviews.build(review_attributes)
+    end
   end
 end
