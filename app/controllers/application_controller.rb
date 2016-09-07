@@ -12,8 +12,8 @@ end
  private
 
     def user_not_authorized
-      flash[:error] = "You can only edit/delete your own tips."
-      redirect_to(tips_path)
+      flash[:error] = "You can only edit/delete your own content."
+      redirect_to(:back)
     end
 
 end
