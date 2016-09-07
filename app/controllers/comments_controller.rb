@@ -1,8 +1,12 @@
 class CommentsController < ApplicationController
 
+  
+
   def create
-    @destination = Destination.find(params[:destination_id])
-    @comment = @destination.comments.create(comment_params)
+    @destination = Destination.find(params[:destination_id]) 
+    @comment = @destination.comments.new(comment_params)
+    @comment.user = current_user
+    @comment.save
     redirect_to destination_path(@destination)
   end
 
@@ -16,7 +20,7 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:content)
+    params.require(:comment).permit(:content, :user_id)
   end
 
 end
