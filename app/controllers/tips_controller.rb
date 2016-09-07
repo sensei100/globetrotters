@@ -16,6 +16,10 @@ class TipsController < ApplicationController
     end
   end
 
+  def edit
+    @tip = Tip.find(params[:id])
+  end
+
   def create
     @tip = Tip.new(tip_params)
     @tip.user_id = current_user[:id]
@@ -24,6 +28,16 @@ class TipsController < ApplicationController
       redirect_to @tip
     else
       render 'new'
+    end
+  end
+
+  def update
+    @tip = Tip.new(tip_params)
+    @tip.user_id = current_user[:id]
+    if @tip.update(tip_params)
+      redirect_to @tip
+    else
+      render 'edit'
     end
   end
 
