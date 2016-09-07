@@ -33,16 +33,18 @@ class TipsController < ApplicationController
 
   def update
     @tip = Tip.new(tip_params)
-    @tip.user_id = current_user[:id]
+    authorize @tip
+
     if @tip.update(tip_params)
       redirect_to @tip
     else
-      render 'edit'
+      render 'edit', alert: "You can only edit your own tips"
     end
   end
 
   def destroy 
     @tip = Tip.find(params[:id])
+    authorize @tip
     @tip.destroy
     redirect_to tips_path
    end
