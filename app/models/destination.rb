@@ -1,7 +1,8 @@
 class Destination < ActiveRecord::Base
 
-  has_many :comments
+  has_many :comments, dependent: :destroy
   has_many :reviews, dependent: :destroy
+  has_many :users, through: :reviews
 
   validates :name, presence: true,
                    length: { minimum: 4 }

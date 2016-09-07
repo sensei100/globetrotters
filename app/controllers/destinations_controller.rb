@@ -22,6 +22,7 @@ class DestinationsController < ApplicationController
 
   def create
     @destination = Destination.new(destination_params)
+    @destination.reviews.first.user = current_user
     
     if @destination.save
       redirect_to @destination
@@ -32,7 +33,6 @@ class DestinationsController < ApplicationController
 
   def update
     @destination = Destination.find(params[:id])
-
     if @destination.update(destination_params)
       redirect_to @destination
     else
@@ -49,7 +49,7 @@ class DestinationsController < ApplicationController
   private
 
   def destination_params
-    params.require(:destination).permit(:name, :region, :country, review_ids: [], reviews_attributes: [:rating, :content])
+    params.require(:destination).permit(:name, :region, :country, review_ids: [], reviews_attributes: [:rating, :content, :user_id])
   end
 
 end

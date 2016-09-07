@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
 
   has_many :reviews
   has_many :comments
+  has_many :destinations, through: :reviews
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
