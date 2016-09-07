@@ -6,5 +6,7 @@ class Review < ActiveRecord::Base
 
   validates :content, length: { minimum: 50 }
   validates :rating, presence: true
+
+  scope :top_pick, -> { where(rating: 5) }
   
 end

@@ -18,6 +18,7 @@ class TipsController < ApplicationController
 
   def create
     @tip = Tip.new(tip_params)
+    @tip.user_id = current_user[:id]
     
     if @tip.save
       redirect_to @tip
@@ -29,7 +30,7 @@ class TipsController < ApplicationController
   private
 
   def tip_params
-    params.require(:tip).permit(:name, :content)
+    params.require(:tip).permit(:name, :content, :user_id)
   end
 
 end

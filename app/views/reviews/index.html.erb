@@ -1,1 +1,13 @@
-test
+<div class="jumbotron">
+
+  <h1>Top Picks</h1>
+  <h3>Check out the top rated destinations</h3>
+  <%= link_to 'Add New Destination', new_destination_path, class: "btn btn-lg btn-primary add_dest" %>
+
+</div>
+
+  <% @reviews.each do |review| %>
+    <div>
+      <p><%= link_to review.title, review_path(review), class: "dest_name" %></p> 
+    </div>   
+  <% end %> 
