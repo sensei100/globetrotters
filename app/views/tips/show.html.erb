@@ -1,6 +1,8 @@
 <div class="tips_show jumbotron">
   <h1><%= @tip.name %></h1>
+  <h3>by: <%= @tip.user.name %></h3>
 </div>
 <div class="container">
   <p><%= @tip.content %></p>
+  <%= link_to 'Delete Tip', [@tip], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-warning btn-small" %>
 </div>
