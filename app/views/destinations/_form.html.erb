@@ -17,8 +17,13 @@
   <%= f.label :name %>
   <%= f.text_field :name, :class => "text_field"  %><br><br>
   
-  <%= f.label :region %>
-  <%= f.text_field :region, :class => "text_field"  %><br><br>
+  <%= f.label :region %><br>
+  <%= f.collection_radio_buttons :region, Destination.select(:region).uniq, :id, :region do |b|  %> 
+    
+    <%= b.radio_button %>
+    <%= b.label %><br>
+  <% end %><br><br>
+   
 
   <%= f.label :country %>
   <%= f.text_field :country, :class => "text_field" %><br><br>

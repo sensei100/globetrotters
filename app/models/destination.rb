@@ -7,7 +7,8 @@ class Destination < ActiveRecord::Base
   validates :name, presence: true,
                    length: { minimum: 4 }
   validates :country, presence: true
-  validates :region, presence: true
+  validates :region, presence: true,
+                     inclusion: { in: [ 'North America', 'South America', 'Africa', 'Europe', 'Asia', 'Australia']}
 
   scope :alphabetically, -> { order("country ASC") }
 
@@ -16,4 +17,5 @@ class Destination < ActiveRecord::Base
       self.reviews.build(review_attributes)
     end
   end
+
 end
