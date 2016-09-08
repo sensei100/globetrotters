@@ -17,12 +17,26 @@
   <%= f.label :name %>
   <%= f.text_field :name, :class => "text_field"  %><br><br>
   
-  <%= f.label :region %><br>
-  <%= f.collection_radio_buttons :region, Destination.select(:region).uniq, :id, :region do |b|  %> 
+  <%= f.label :region %><br>  
+    <%= f.radio_button :region, "North America" %>
+    <%= f.label :region, "North America" %>
+
+    <%= f.radio_button :region, "South America" %>
+    <%= f.label :region, "South America" %>
+
+    <%= f.radio_button :region, "Africa" %>
+    <%= f.label :region, "Africa" %>
+
+    <%= f.radio_button :region, "Europe" %>
+    <%= f.label :region, "Europe" %>
+
+    <%= f.radio_button :region, "Asia" %>
+    <%= f.label :region, "Asia" %>
+
+    <%= f.radio_button :region, "Australia" %>
+    <%= f.label :region, "Australia" %>
     
-    <%= b.radio_button %>
-    <%= b.label %><br>
-  <% end %><br><br>
+  <br><br>
    
 
   <%= f.label :country %>
@@ -30,9 +44,22 @@
 
   <%= f.fields_for :reviews, @destination.reviews.build do |r| %>
 
-    <%= r.label :rating %>
-    <%= r.text_field :rating, class: "text_field" %><br><br>
+    <%= r.label :rating %><br>
+      <%= r.radio_button :rating, 1 %>
+      <%= r.label :rating, 1 %>
 
+      <%= r.radio_button :rating, 2 %>
+      <%= r.label :rating, 2 %>
+
+      <%= r.radio_button :rating, 3 %>
+      <%= r.label :rating, 3 %>
+
+      <%= r.radio_button :rating, 4 %>
+      <%= r.label :rating, 4 %>
+
+      <%= r.radio_button :rating, 5 %>
+      <%= r.label :rating, 5 %><br><br>
+  
     <%= r.label :content %><br>
     <%= r.text_area :content, class: "text_area" %><br><br>
 

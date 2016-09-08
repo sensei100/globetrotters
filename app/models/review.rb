@@ -5,8 +5,9 @@ class Review < ActiveRecord::Base
   has_many :comments
   
 
-  validates :content, length: { minimum: 50 }
-  validates :rating, presence: true
+  validates :content, length: { minimum: 5 }
+  validates :rating, presence: true,
+                     inclusion: { in: [1,2,3,4,5] }
 
   scope :top_pick, -> { where(rating: 5) }
   
