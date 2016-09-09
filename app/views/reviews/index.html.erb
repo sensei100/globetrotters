@@ -6,8 +6,10 @@
 
 </div>
 
+<div class="container">
+  <h3>Not sure where you want to go?  Check out these 5 star destinations for some inspiration!</h3><br>
   <% @reviews.each do |review| %>
-    <div>
-      <p><%= link_to review.destination.name, review_path(review), class: "dest_name" %></p> 
-    </div>   
+    <p><%= link_to review.destination.name, review_path(review), class: "dest_name" %></p> 
   <% end %> 
+</div>   
+  
