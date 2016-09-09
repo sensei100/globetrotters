@@ -5,8 +5,4 @@ class Comment < ActiveRecord::Base
 
   validates :content, presence: true
 
-  def self.recent_comments
-    order('created_at DESC').limit(10)
-  end
-
 end
