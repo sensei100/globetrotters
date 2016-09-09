@@ -23,7 +23,7 @@ class TipsController < ApplicationController
 
   def create
     @tip = Tip.new(tip_params)
-    @tip.user_id = current_user[:id]
+    @tip.user = current_user
     
     if @tip.save
       redirect_to @tip
@@ -33,9 +33,10 @@ class TipsController < ApplicationController
   end
 
   def update
-    @tip = Tip.new(tip_params)
+    @tip = Tip.find(params[:id])
     
-    if @tip.update(tip_params)
+    if @tip.user = current_user
+      @tip.update(tip_params)
       redirect_to @tip
     else
       render 'edit', alert: "You can only edit your own tips"
