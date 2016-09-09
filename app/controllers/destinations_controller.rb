@@ -1,7 +1,5 @@
 class DestinationsController < ApplicationController
 
-  before_action 
-
   def index
     @destinations = Destination.alphabetically
   end
@@ -21,12 +19,10 @@ class DestinationsController < ApplicationController
 
   def edit
     @destination = Destination.find(params[:id])
-   
   end
 
   def create
     @destination = Destination.new(destination_params)
-    @user = User.find(params[:id])
     @destination.reviews.first.user == current_user
     
     if @destination.save

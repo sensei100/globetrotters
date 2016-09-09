@@ -2,7 +2,6 @@ class ReviewsController < ApplicationController
 
   def index
     @reviews = Review.top_pick
-
   end
 
   def show

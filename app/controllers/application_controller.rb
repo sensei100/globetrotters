@@ -9,11 +9,11 @@ def after_sign_in_path_for(resource)
   request.env['omniauth.origin'] || root_path
 end
 
- private
+private
 
-    def user_not_authorized
-      flash[:error] = "You can only edit/delete your own content."
-      redirect_to(:back)
-    end
+  def user_not_authorized
+    flash[:error] = "You can only edit/delete your own content."
+    redirect_to(:back)
+  end
 
 end

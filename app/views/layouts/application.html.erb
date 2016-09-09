@@ -9,15 +9,14 @@
 </head>
 <body>
 
-<%= render 'layouts/navigation' %>
- <%- flash.each do |name, msg| -%>
-    <h3><%= content_tag :div, msg, :class => "error_explanation" if msg.is_a?(String) %></h3>
-  <%- end -%> 
-<%= yield %>
+  <%= render 'layouts/navigation' %>
+    <%- flash.each do |name, msg| -%>
+      <h3><%= content_tag :div, msg, :class => "error_explanation" if msg.is_a?(String) %></h3>
+    <%- end -%> 
 
+  <%= yield %>
 
-
-<%= render 'layouts/footer' %>
+  <%= render 'layouts/footer' %>
 
 </body>
 </html>
