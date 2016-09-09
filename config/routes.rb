@@ -4,10 +4,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :destroy]
     resources :reviews
   end
-  resources :reviews do
-    resources :comments
-  end
-  
+  resources :reviews 
   resources :tips
   get 'welcome/index'
   root 'welcome#index'
