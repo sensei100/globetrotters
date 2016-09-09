@@ -34,6 +34,7 @@ class DestinationsController < ApplicationController
 
   def update
     @destination = Destination.find(params[:id])
+    authorize @destination
     if @destination.update(destination_params)
       redirect_to @destination
     else
