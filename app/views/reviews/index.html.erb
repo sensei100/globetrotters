@@ -1,4 +1,4 @@
-<div class="jumbotron">
+<div class="review_index jumbotron">
 
   <h1>Top Picks</h1>
   <h3>Check out the top rated destinations</h3>
@@ -8,6 +8,6 @@
 
   <% @reviews.each do |review| %>
     <div>
-      <p><%= link_to review.content, review_path(review), class: "dest_name" %></p> 
+      <p><%= link_to review.destination.name, review_path(review), class: "dest_name" %></p> 
     </div>   
   <% end %> 
