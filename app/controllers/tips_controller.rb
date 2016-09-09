@@ -18,6 +18,7 @@ class TipsController < ApplicationController
 
   def edit
     @tip = Tip.find(params[:id])
+    authorize @tip
   end
 
   def create
@@ -33,8 +34,7 @@ class TipsController < ApplicationController
 
   def update
     @tip = Tip.new(tip_params)
-    authorize @tip
-
+    
     if @tip.update(tip_params)
       redirect_to @tip
     else

@@ -19,6 +19,7 @@ class DestinationsController < ApplicationController
 
   def edit
     @destination = Destination.find(params[:id])
+   
   end
 
   def create
@@ -33,12 +34,13 @@ class DestinationsController < ApplicationController
   end
 
   def update
-    @destination = Destination.find(params[:id])
-    authorize @destination
-    if @destination.update(destination_params)
+    @destination = Destination.new(destination_params)
+    
+    if @destination.reviews.first.user == current_user
+      @destination.update(destination_params)
       redirect_to @destination
     else
-      render 'edit'
+      render 'edit', alert: "You can only edit your own content."
     end
   end
 

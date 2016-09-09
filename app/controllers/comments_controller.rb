@@ -1,7 +1,5 @@
 class CommentsController < ApplicationController
 
-  
-
   def create
     @destination = Destination.find(params[:destination_id]) 
     @comment = @destination.comments.new(comment_params)
