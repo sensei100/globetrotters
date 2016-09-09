@@ -3,9 +3,12 @@ class CommentsController < ApplicationController
   def create
     @destination = Destination.find(params[:destination_id]) 
     @comment = @destination.comments.new(comment_params)
-    @comment.user = current_user
-    @comment.save
-    redirect_to destination_path(@destination)
+    if !current_user
+      redirect_to destination_path(@destination), alert: "You must be logged in to add a comment"
+    else
+      @comment.save
+      redirect_to destination_path(@destination)
+    end
   end
 
   def destroy

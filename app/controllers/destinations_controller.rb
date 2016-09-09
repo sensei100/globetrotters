@@ -34,7 +34,7 @@ class DestinationsController < ApplicationController
   end
 
   def update
-    @destination = Destination.new(destination_params)
+    @destination = Destination.find(destination_params)
     
     if @destination.reviews.first.user == current_user
       @destination.update(destination_params)
