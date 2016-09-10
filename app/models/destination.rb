@@ -14,7 +14,7 @@ class Destination < ActiveRecord::Base
 
   def reviews_attributes=(reviews_attributes)
     reviews_attributes.values.each do |review_attributes|
-      self.reviews.build(review_attributes)
+      self.reviews.build(review_attributes) || self.reviews.update(review_attributes)
     end
   end
 

@@ -23,7 +23,7 @@ class DestinationsController < ApplicationController
 
   def create
     @destination = Destination.new(destination_params)
-    @destination.reviews.first.user == current_user
+    @destination.reviews.first.user = current_user
     
     if @destination.save
       redirect_to @destination
@@ -34,7 +34,8 @@ class DestinationsController < ApplicationController
 
   def update
     @destination = Destination.find(params[:id])
-     if @destination.update(destination_params)
+    if @destination.reviews.first.user = current_user
+      @destination.update(destination_params)
       redirect_to @destination
     else
       render 'edit', alert: "You can only edit your own content."
