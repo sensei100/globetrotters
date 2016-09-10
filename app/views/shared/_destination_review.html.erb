@@ -1,0 +1,35 @@
+  <div class="row">
+    <h1 class="show_headline">
+      <%= @destination.name %>
+    </h1>
+
+    <div class="col-lg-4">
+      <h3 class="show_subheading">
+        <strong>Region:</strong>
+        <%= @destination.region %>
+      </h3>
+
+      <h3 class="show_subheading">
+        <strong>Country:</strong>
+        <%= @destination.country %>
+      </h3>
+
+      <%= link_to "Edit Destination", edit_destination_path(@destination), class: "btn btn-info btn-small dest_button" %><br><br>
+      <%= link_to "See all destinations", destinations_path, class: "btn btn-success btn-small dest_button" %>
+    </div>
+  
+    <div class="col-lg-4">
+      <h3 class="show_subheading">Review</h3> 
+      <% @destination.reviews.each do |r| %>
+        <h4 id="rating">Rating: <%= r.rating %></h4>
+        <p><%= r.content %></p>
+      <% end %>
+    </div>
+
+    <div class="col-lg-4">
+      <h3 class="show_subheading">Comments</h3>
+      <%= render @destination.comments %>
+
+      <h4 class="comment_form">Add a comment:</h4>
+      <%= render 'comments/form' %>
+    </div>
