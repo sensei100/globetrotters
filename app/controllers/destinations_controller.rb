@@ -13,8 +13,7 @@ class DestinationsController < ApplicationController
     if !current_user
       redirect_to destinations_path, alert: "You must be logged in to add a destination"
     else
-      @destination = Destination.new
-      @destination.reviews.build 
+      @destination = Destination.new 
     end
   end
 
