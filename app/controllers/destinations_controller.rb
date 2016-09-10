@@ -14,6 +14,7 @@ class DestinationsController < ApplicationController
       redirect_to destinations_path, alert: "You must be logged in to add a destination"
     else
       @destination = Destination.new 
+      @destination.reviews.build
     end
   end
 
@@ -34,12 +35,11 @@ class DestinationsController < ApplicationController
 
   def update
     @destination = Destination.find(params[:id])
-    if @destination.reviews.first.user = current_user
-      @destination.update(destination_params)
+      if @destination.update(destination_params)
       redirect_to @destination
     else
       render 'edit', alert: "You can only edit your own content."
-    end
+      end
   end
 
   def destroy

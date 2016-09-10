@@ -29,7 +29,7 @@
   <%= f.label :country %>
   <%= f.text_field :country, :class => "text_field" %><br><br>
 
-  <%= f.fields_for :reviews, @destination.reviews.build do |r| %>
+  <%= f.fields_for :reviews do |r| %>
 
     <%= r.label :rating %><br>
       <%= r.radio_button :rating, 1 %>
@@ -49,6 +49,8 @@
   
     <%= r.label :content %><br>
     <%= r.text_area :content, class: "text_area" %><br><br>
+
+    <%= r.hidden_field :user_id, :value => current_user.id %>
 
   <div class="actions">
     <%= f.submit "Add New Destination", class: "btn btn-lg btn-primary" %>
