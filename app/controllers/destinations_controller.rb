@@ -33,7 +33,6 @@ class DestinationsController < ApplicationController
   end
 
   def update
-    destination_params[:reviews_attributes].merge(user_id: current_user.id)
     @destination = Destination.find(params[:id])
      if @destination.update(destination_params)
       redirect_to @destination
@@ -51,7 +50,7 @@ class DestinationsController < ApplicationController
   private
 
   def destination_params
-    params.require(:destination).permit(:name, :region, :country, review_ids: [], reviews_attributes: [:rating, :content, :current_user_id])
+    params.require(:destination).permit(:name, :region, :country, review_ids: [], reviews_attributes: [:rating, :content, :user_id, :id] )
   end
 
 end
