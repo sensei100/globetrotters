@@ -1,5 +1,4 @@
-<%= form_for([@destination, @destination.comments.build]) do |f| %>
-
+ <%= form_for([@destination, @destination.comments.build]) do |f| %>
   <p>
     <%= f.label :content %><br>
     <%= f.text_area :content, class: "text_area" %>

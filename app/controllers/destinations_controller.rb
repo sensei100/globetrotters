@@ -14,6 +14,7 @@ class DestinationsController < ApplicationController
       redirect_to destinations_path, alert: "You must be logged in to add a destination"
     else
       @destination = Destination.new
+      @destination.reviews.build 
     end
   end
 
@@ -50,7 +51,7 @@ class DestinationsController < ApplicationController
   private
 
   def destination_params
-    params.require(:destination).permit(:name, :region, :country, review_ids: [], reviews_attributes: [:rating, :content, :user_id, :id] )
+    params.require(:destination).permit(:name, :region, :country, review_ids: [], reviews_attributes: [:rating, :content, :user_id] )
   end
 
 end

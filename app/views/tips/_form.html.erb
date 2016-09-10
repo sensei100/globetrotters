@@ -1,18 +1,6 @@
 <%= form_for @tip do |f| %>
 
-  <% if @tip.errors.any? %>
-    <div id="error_explanation" class="fields_with_errors">
-      <h3>
-        <%= pluralize(@tip.errors.count, "error") %> prohibited
-        this destination from being saved:
-      </h3>
-      <ul>
-        <% @tip.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render 'shared/error_message', object: @tip %>
 
   <%= f.label :name %>
   <%= f.text_field :name, :class => "text_field"  %><br><br><br>
