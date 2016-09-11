@@ -11,6 +11,7 @@
           <%= link_to 'Login', user_session_path, class: "btn btn-lg btn-info", id: "login" %> 
           <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path, class: "btn btn-lg btn-primary", id: "facebook_login" %>
         <% else %>
+          <p class="user_greeting">Hello <%= current_user.name %>!</p>
           <%= link_to 'Log Out', destroy_user_session_path,  :method => :delete, class: "btn btn-lg btn-warning", id: "logout" %> 
         <% end %>
       </div>

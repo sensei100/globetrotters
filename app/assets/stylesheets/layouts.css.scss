@@ -18,7 +18,7 @@ $navbar-inverse-bg: #283D3E;
 }
 
 #logo:hover {
-  color: #D62E2E;
+  color: white;
   text-decoration: none;
 }
 
@@ -236,5 +236,15 @@ label {
   margin-top: -10px;
   color: white;
   border-bottom: 5px solid #48586F;
+}
+
+.user_greeting {
+  color: white;
+  font-family: 'Sue Ellen Francisco', cursive;
+  line-height: 1;
+  font-size: 1.5em;
+  float: right;
+  margin-top: 15px;
+  margin-left: 50px;
 }
 
