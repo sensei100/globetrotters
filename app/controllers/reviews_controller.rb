@@ -2,7 +2,7 @@ class ReviewsController < ApplicationController
 
   def index
     @reviews = Review.top_pick
-    @destinations = Destination.all
+    @destinations = Destination.alphabetically
   end
 
   def show

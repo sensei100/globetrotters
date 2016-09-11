@@ -14,6 +14,7 @@
   <h3>Didn't see the right place above?  Here are all the destinations available.</h3><br>
 
     <% @destinations.each do |dest| %>
+    <p class="country"><%= dest.country %><br></p>
     <p><%= link_to dest.name, destination_path(dest), class: "dest_name" %></p> 
   <% end %> 
 </div>   
