@@ -15,12 +15,13 @@ class DestinationsController < ApplicationController
       redirect_to destinations_path, alert: "You must be logged in to add a destination"
     else
       @destination = Destination.new 
-      @destination.reviews.build  if !@destination.reviews.exists?(reviews)
+      @destination.reviews.build  
     end
   end
 
   def edit
     @destination = Destination.find(params[:id])
+     @destination.reviews.build if !@destination.reviews.exists?
   end
 
   def create
