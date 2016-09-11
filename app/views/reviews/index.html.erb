@@ -8,12 +8,9 @@
 
   <% @reviews.each do |review| %>
     <p><%= link_to review.destination.name, destination_review_path(review.destination, review), class: "dest_name" %>
-      <
-    </p>
-
-    <br><br>
+    </p>  
   <% end %> 
-
+<br><br>
   <h3>Didn't see the right place above?  Here are all the destinations available.</h3><br>
 
     <% @destinations.each do |dest| %>

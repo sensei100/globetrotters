@@ -1,6 +1,6 @@
  class ReviewPolicy < ApplicationPolicy
 
-  def update?
+  def destroy
     record.try(:user) == user
   end
   
