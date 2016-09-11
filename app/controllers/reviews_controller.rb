@@ -10,21 +10,6 @@ class ReviewsController < ApplicationController
     @destination = Destination.find(params[:destination_id])
   end
 
-  def edit
-    @review = Review.find(params[:id])
-    authorize @review
-  end
-
-  def update
-    @review = Review.find(params[:id])
-
-    if @review.update(review_params)
-      redirect_to @review
-    else
-      render 'edit', alert: "You can only edit your own content."
-    end
-  end
-
   def destroy
     @review = Review.find(params[:id])
     @review.destroy

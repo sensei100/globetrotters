@@ -22,8 +22,7 @@
       <h3 class="show_subheading">Review</h3> 
       <% @destination.reviews.each do |review| %>
         <h4 id="rating">Rating: <%= review.rating %></h4>
-        <p><%= review.content %></p>
-        <%= link_to "Edit Review", review, class: "btn btn-info btn-small dest_button" %><br><br>
+        <p><%= review.content %></p><br>
         <%= link_to 'Delete Review', [review], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-warning btn-small" %><br><br>
       <% end %>
       

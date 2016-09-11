@@ -7,13 +7,17 @@
   <h3>Not sure where you want to go?  Check out these 5 star destinations for some inspiration!</h3><br>
 
   <% @reviews.each do |review| %>
-    <p><%= link_to review.destination.name, destination_review_path(review.destination, review), class: "dest_name" %></p><br><br>
+    <p><%= link_to review.destination.name, destination_review_path(review.destination, review), class: "dest_name" %>
+      <
+    </p>
+
+    <br><br>
   <% end %> 
 
   <h3>Didn't see the right place above?  Here are all the destinations available.</h3><br>
 
     <% @destinations.each do |dest| %>
-    <p><%= link_to dest.name, destinations_path, class: "dest_name" %></p> 
+    <p><%= link_to dest.name, destination_path(dest), class: "dest_name" %></p> 
   <% end %> 
 </div>   
   

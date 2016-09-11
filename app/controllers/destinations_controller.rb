@@ -20,7 +20,7 @@ class DestinationsController < ApplicationController
 
   def edit
     @destination = Destination.find(params[:id])
-    authorize @destination
+    @destination.reviews.build
   end
 
   def create
