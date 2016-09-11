@@ -20,12 +20,16 @@ class DestinationsController < ApplicationController
 
   def edit
     @destination = Destination.find(params[:id])
-    @destination.reviews.build
+    @destination.reviews.build if !@destination.reviews.exists?
   end
 
   def create
     @destination = Destination.new(destination_params)
     @destination.reviews.first.user = current_user
+    @existing = Destination.reviews.where('content= ?', params[:content]).first
+    if !@existing.present?
+      @destination.reviews.build 
+  end
     if @destination.save
       redirect_to @destination
     else
