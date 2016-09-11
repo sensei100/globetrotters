@@ -6,6 +6,7 @@ class DestinationsController < ApplicationController
 
   def show
     @destination = Destination.find(params[:id])
+    @reviews = Destination.includes(:comments).last(5)
     @comments = Destination.includes(:comments).last(5)
   end
 
