@@ -20,10 +20,13 @@
   
     <div class="col-lg-4">
       <h3 class="show_subheading">Review</h3> 
-      <% @destination.reviews.each do |r| %>
-        <h4 id="rating">Rating: <%= r.rating %></h4>
-        <p><%= r.content %></p>
+      <% @destination.reviews.each do |review| %>
+        <h4 id="rating">Rating: <%= review.rating %></h4>
+        <p><%= review.content %></p>
+        <%= link_to "Edit Review", review, class: "btn btn-info btn-small dest_button" %><br><br>
+        <%= link_to 'Delete Review', [review], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-warning btn-small" %><br><br>
       <% end %>
+      
     </div>
 
     <div class="col-lg-4">
