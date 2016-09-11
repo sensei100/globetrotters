@@ -28,33 +28,15 @@
    
   <%= f.label :country %>
   <%= f.text_field :country, :class => "text_field" %><br><br>
+    
+    <%= f.fields_for :reviews do |r| %>
+   
 
-  <%= f.fields_for :reviews do |r| %>
-
-    <%= r.label :rating %><br>
-      <%= r.radio_button :rating, 1 %>
-      <%= r.label :rating, 1 %>
-
-      <%= r.radio_button :rating, 2 %>
-      <%= r.label :rating, 2 %>
-
-      <%= r.radio_button :rating, 3 %>
-      <%= r.label :rating, 3 %>
-
-      <%= r.radio_button :rating, 4 %>
-      <%= r.label :rating, 4 %>
-
-      <%= r.radio_button :rating, 5 %>
-      <%= r.label :rating, 5 %><br><br>
-  
-    <%= r.label :content %><br>
-    <%= r.text_area :content, class: "text_area" %><br><br>
-
-    <%= r.hidden_field :user_id, :value => current_user.id %>
+    <%= render 'reviews/form_fields', f: r %>
 
   <div class="actions">
     <%= f.submit "Add New Destination", class: "btn btn-lg btn-primary" %>
   </div>
-  <% end %>
+ <% end %>
 <% end %>
 
