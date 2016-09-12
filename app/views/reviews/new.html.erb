@@ -1,10 +1,11 @@
 <div class="container">
 
   <h1>Add Review</h1>
-    <%= form_for @review  do |f| %>
 
+    <%= form_for [:destination, @review]  do |f| %>
+   <%= render 'shared/error_message', object: @review %>
     <%= render 'form', f: f %>
-
+     
     <div class="actions">
       <%= f.submit "Add Review", class: "btn btn-lg btn-primary" %>
     </div>

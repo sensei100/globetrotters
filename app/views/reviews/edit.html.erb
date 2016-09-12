@@ -1,5 +1,6 @@
 <div class="container">
   <%= form_for @review do |f| %>
+    <%= render 'shared/error_message', object: @review %>
     <%= render 'form', f: f %>
     <div class="actions">
       <%= f.submit "Submit", class: "btn btn-lg btn-primary" %>

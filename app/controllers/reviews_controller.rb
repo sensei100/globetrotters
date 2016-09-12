@@ -11,8 +11,7 @@ class ReviewsController < ApplicationController
   end
 
   def new
-    @destination = Destination.find_by(params[:destination_id])
-    @destination.reviews.build
+    @review = Review.new
     if !current_user
       redirect_to destinations_path, alert: "You must be logged in to add a review"
     else
@@ -25,13 +24,14 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @review = Review.find(params[:id])
+    @destination = Destination.find(params[:destination_id])
+    @review = @destination.reviews.new(review_params)
     @review.user = current_user
     
     if @review.save
-      redirect_to destination_path(@review.destination)
+      redirect_to destination_path(@destination)
     else
-      render 'new'
+      render 'new', alert: "There was a problem submitting your review."
     end
   end
 
@@ -55,7 +55,7 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:rating, :content, :user_id)
+    params.require(:review).permit(:rating, :content, :user_id, :destination_id)
   end
 
 end
