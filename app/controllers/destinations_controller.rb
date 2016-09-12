@@ -1,11 +1,11 @@
 class DestinationsController < ApplicationController
+  before_filter :find_destination, only: [:show, :edit, :update, :destroy]
 
   def index
     @destinations = Destination.alphabetically
   end
 
   def show
-    @destination = Destination.find(params[:id])
     @reviews = Destination.includes(:comments).last(5)
     @comments = Destination.includes(:comments).last(5)
   end
@@ -20,7 +20,6 @@ class DestinationsController < ApplicationController
   end
 
   def edit
-    @destination = Destination.find(params[:id])
      @destination.reviews.build if !@destination.reviews.exists?
   end
 
@@ -36,13 +35,11 @@ class DestinationsController < ApplicationController
   end
 
   def update
-    @destination = Destination.find(params[:id])
     @destination.update(destination_params)
     redirect_to @destination
   end
 
   def destroy
-    @destination = Destination.find(params[:id])
     @destination.destroy
     redirect_to destinations_path
   end
@@ -50,7 +47,10 @@ class DestinationsController < ApplicationController
   private
 
   def destination_params
-    params.require(:destination).permit(:name, :region, :country, review_ids: [], reviews_attributes: [:rating, :content, :user_id] )
+    params.require(:destination).permit(:name, :region, :country, reviews_attributes: [:rating, :content, :user_id])
   end
 
+  def find_destination
+    @destination = Destination.find(params[:id])
+  end
 end
