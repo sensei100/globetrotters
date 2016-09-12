@@ -10,6 +10,14 @@ class DestinationsController < ApplicationController
     @comments = Destination.includes(:comments).last(5)
   end
 
+  def new
+    if !current_user
+      redirect_to destinations_path, alert: "You must be logged in to add a destination"
+    else
+      @destination = Destination.new 
+    end
+  end
+
   def edit
   end
 

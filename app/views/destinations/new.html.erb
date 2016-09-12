@@ -2,6 +2,17 @@
 
 <h1>New Destination</h1>
 
-<%= render 'form' %>
-
+  <%= form_for @destination do |f| %>
+    <%= render 'shared/error_message', object: @destination %>
+    <%= render 'new_form', f: f %>
+ 
+    <%= f.fields_for :reviews, @destination.reviews.build do |r| %>
+  
+    <%= render 'reviews/form', f: r %>
+    
+  <div class="actions">
+    <%= f.submit "Add Destination", class: "btn btn-lg btn-primary" %>
+  </div>
+    <% end %>
+  <% end %>
 </div>
