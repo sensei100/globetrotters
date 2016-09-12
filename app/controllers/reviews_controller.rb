@@ -6,8 +6,12 @@ class ReviewsController < ApplicationController
   end
 
   def show
-    @review = Review.find(params[:id])
-    @destination = Destination.find_by(params[:destination_id])
+    if !current_user
+      redirect_to root_path, alert: "You must be logged in to continue."
+    else
+      @review = Review.find(params[:id])
+      @destination = Destination.find_by(params[:destination_id])
+    end
   end
 
   def new

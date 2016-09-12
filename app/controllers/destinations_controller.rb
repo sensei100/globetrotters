@@ -6,8 +6,12 @@ class DestinationsController < ApplicationController
   end
 
   def show
-    @reviews = Destination.includes(:comments).last(5)
-    @comments = Destination.includes(:comments).last(5)
+    if !current_user
+      redirect_to root_path, alert: "You must be logged in to continue."
+    else
+      @reviews = Destination.includes(:comments).last(5)
+      @comments = Destination.includes(:comments).last(5)
+    end
   end
 
   def new
