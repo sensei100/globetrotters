@@ -1,9 +1,9 @@
 <div class="container">
 
   <h1>Add Review</h1>
-    <%= form_for([@destination, @destination.reviews.build])  do |f| %>
+    <%= form_for @review  do |f| %>
 
-    <%= render 'form_fields', f: f %>
+    <%= render 'form', f: f %>
 
     <div class="actions">
       <%= f.submit "Add Review", class: "btn btn-lg btn-primary" %>

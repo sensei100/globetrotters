@@ -10,8 +10,29 @@ class ReviewsController < ApplicationController
     @destination = Destination.find_by(params[:destination_id])
   end
 
+  def new
+    @destination = Destination.find_by(params[:destination_id])
+    @destination.reviews.build
+    if !current_user
+      redirect_to destinations_path, alert: "You must be logged in to add a review"
+    else
+      @review = Review.new  
+    end
+  end
+
   def edit
     @review = Review.find(params[:id])
+  end
+
+  def create
+    @review = Review.find(params[:id])
+    @review.user = current_user
+    
+    if @review.save
+      redirect_to destination_path(@review.destination)
+    else
+      render 'new'
+    end
   end
 
   def update
@@ -19,7 +40,7 @@ class ReviewsController < ApplicationController
     
     if @review.user = current_user
       @review.update(review_params)
-      redirect_to review_path(@review)
+      redirect_to destination_path(@review.destination)
     else
       render 'edit', alert: "You can only edit your own tips"
     end
@@ -34,7 +55,7 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:rating, :content, :user_id, :destination_id)
+    params.require(:review).permit(:rating, :content, :user_id)
   end
 
 end
