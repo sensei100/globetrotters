@@ -1,13 +1,1 @@
-<div class="container">
 
-  <h1>Add Review</h1>
-    <%= form_for([@destination, @destination.reviews.build])  do |f| %>
-
-    <%= render 'form_fields', f: f %>
-
-    <div class="actions">
-      <%= f.submit "Add Review", class: "btn btn-lg btn-primary" %>
-    </div>
-    <% end %>
-
-</div>
