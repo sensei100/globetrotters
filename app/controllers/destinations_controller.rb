@@ -20,7 +20,6 @@ class DestinationsController < ApplicationController
   end
 
   def edit
-     @destination.reviews.build if !@destination.reviews.exists?
   end
 
   def create

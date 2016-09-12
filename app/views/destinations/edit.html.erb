@@ -1,7 +1,18 @@
 <div class="container">
-  <h1>Edit Destination</h1><br>
+<%= form_for @destination do |f| %>
 
-  <%= render 'form' %><br>
+  <%= render 'shared/error_message', object: @destination %>
+
+  <h1>Edit Destination</h1><br>
+ 
+
+  <%= render 'dest_edit_form', f: f %><br>
+
+  <div class="actions">
+    <%= f.submit "Submit", class: "btn btn-lg btn-primary" %><br><br>
+  </div>
+ 
 
   <%= link_to "See all destinations", destinations_path, class: "btn btn-success btn-lg" %>
+  <% end %>
 </div>
