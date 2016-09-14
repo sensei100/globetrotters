@@ -9,8 +9,8 @@ class DestinationsController < ApplicationController
     if !current_user
       redirect_to root_path, alert: "You must be logged in to continue."
     else
-      @reviews = Destination.includes(:comments).last(5)
-      @comments = Destination.includes(:comments).last(5)
+      @reviews = @destination.reviews.last(5)
+      @comments = @destination.comments.last(5)
     end
   end
 

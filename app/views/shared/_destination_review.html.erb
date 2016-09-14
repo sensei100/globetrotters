@@ -20,7 +20,7 @@
   
     <div class="col-lg-4">
       <h3 class="show_subheading">Review</h3> 
-      <% @destination.reviews.each do |review| %>
+      <% @reviews.each do |review| %>
         <h4 id="rating">Rating: <%= review.rating %></h4>
         <p><%= review.content %></p><br>
         <%= link_to "Edit Review", edit_review_path(review), class: "btn btn-info btn-small" %><br><br>
@@ -30,7 +30,7 @@
 
     <div class="col-lg-4">
       <h3 class="show_subheading">Comments</h3>
-      <%= render @destination.comments %>
+      <%= render 'comments/comment' %>
 
       <h4 class="comment_form">Add a comment:</h4>
       <%= render 'comments/form' %>

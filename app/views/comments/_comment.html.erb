@@ -1,16 +1,20 @@
 <div>
-  <p>
-    <strong>Name:</strong>
-    <%= comment.user.name %>
-  </p>
-  
-  <p>
-    <strong>Comment:</strong>
-    <%= comment.content %>
-  </p>
+  <% if @comments.any? %>
+    <% @comments.each do |comment| %>
+      <p>
+        <strong>Name:</strong>
+        <%= comment.user.name %>
+      </p>
+      
+      <p>
+        <strong>Comment:</strong>
+        <%= comment.content %>
+      </p>
 
-  <p>
-    <%= link_to 'Delete Comment', [comment.destination, comment], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-success btn-small" %>
-  </p>
+      <p>
+        <%= link_to 'Delete Comment', [comment.destination, comment], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-success btn-small" %>
+      </p>
+    <% end %>
+  <% end %>
 </div>
 
