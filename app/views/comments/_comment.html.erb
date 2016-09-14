@@ -1,5 +1,5 @@
 <div>
-  <% if @comments.any? %>
+  <% if @comments.try(:any?) %>
     <% @comments.each do |comment| %>
       <p>
         <strong>Name:</strong>
