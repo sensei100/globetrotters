@@ -10,6 +10,12 @@ Run the rails server by typing rails s in the terminal.  Then open you r browser
 
 You can create an account or login with Facebook.
 
-Anyone can read the reviews and destinations, but you must be logged in if you want to write your own review or travel tip.
+Contributing
+
+Bug reports and pull requests are welcome on GitHub at https://github.com/sensei100/globetrotters. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
+
+License
+
+The gem is available as open source under the terms of the MIT License.
 
 
