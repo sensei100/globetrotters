@@ -14,6 +14,11 @@ class User < ActiveRecord::Base
   has_many :destinations, through: :reviews
   has_many :tips
 
+  enum role: [:user, :admin]
+  def guest?
+    persisted?
+  end
+
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email

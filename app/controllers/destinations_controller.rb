@@ -23,6 +23,8 @@ class DestinationsController < ApplicationController
   end
 
   def edit
+    if current_user.admin?
+    end
   end
 
   def create
@@ -37,8 +39,8 @@ class DestinationsController < ApplicationController
   end
 
   def update
-    @destination.update(destination_params)
-    redirect_to @destination
+      @destination.update(destination_params)
+      redirect_to @destination, alert: "Only admin can edit destinations."
   end
 
   def destroy

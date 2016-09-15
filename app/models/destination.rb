@@ -17,4 +17,5 @@ class Destination < ActiveRecord::Base
       self.reviews.build(review_attributes)
     end
   end
+
 end
