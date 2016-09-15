@@ -1,5 +1,5 @@
 class DestinationsController < ApplicationController
-  before_filter :find_destination, only: [:show, :edit, :update, :destroy]
+  before_filter :find_destination, only: [:show, :edit, :update]
 
   def index
     @destinations = Destination.alphabetically
@@ -44,8 +44,11 @@ class DestinationsController < ApplicationController
   end
 
   def destroy
-    @destination.destroy
-    redirect_to destinations_path
+    @destination = Destination.find(params[:id])
+    if current_user.admin?
+      @destination.destroy
+    end
+      redirect_to destinations_path, alert: "Only admin can delete destinations."
   end
 
   private
