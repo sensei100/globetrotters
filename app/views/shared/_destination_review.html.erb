@@ -23,10 +23,13 @@
       <h3 class="show_subheading">Review</h3> 
       <% if @reviews.try(:any?) %>
       <% @reviews.each do |review| %>
+      <div id="reviewInfo">
         <h4 id="rating">Rating: <%= review.rating %></h4>
-        <p><%= review.content %></p><br>
+        <p id="reviewContent"><%= review.content %></p><br>
         <%= link_to "Edit Review", edit_review_path(review), class: "btn btn-info btn-small" %><br><br>
         <%= link_to 'Delete Review', destination_review_path(@destination, review), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-warning btn-small" %><br><br>
+          <a href="#" class="js-next btn btn-primary btn-small" data-id="<%=review.id%>">Next Review</a>
+<br>
       <% end %>
       <% end %>
     </div>
@@ -38,3 +41,18 @@
       <h4 class="comment_form">Add a comment:</h4>
       <%= render 'comments/form' %>
     </div>
+
+<script type="text/javascript" charset="utf-8">
+$(function () {
+  $(".js-next").on("click", function(e) {
+    e.preventDefault()
+    var nextId = parseInt($(".js-next").attr("data-id")) + 1;
+    $.get("/reviews/" + nextId + ".json", function(data) {
+      $("#rating").text(data["rating"]);
+      $("#reviewContent").text(data["content"]);
+      // re-set the id to current on the link
+      $(".js-next").attr("data-id", data["id"]);
+    });
+  });
+});
+</script>
