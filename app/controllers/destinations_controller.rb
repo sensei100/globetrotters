@@ -11,6 +11,10 @@ class DestinationsController < ApplicationController
     else
       @reviews = @destination.reviews.last(5)
       @comments = @destination.comments.last(5)
+      respond_to do |format|
+        format.html { render :show }
+        format.json { render json: @destination }
+      end
     end
   end
 

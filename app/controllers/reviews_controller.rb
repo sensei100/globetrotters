@@ -11,6 +11,10 @@ class ReviewsController < ApplicationController
     else
       @review = Review.find(params[:id])
       @destination = Destination.find_by(params[:destination_id])
+      respond_to do |format|
+        format.html { render :show }
+        format.json { render json: @review }
+      end
     end
   end
 
