@@ -49,7 +49,7 @@ body {
 .center {
   text-align: center;
   height: 600px;
-  background-image: url("tuscany-7.jpg");
+  background-image: url(asset_path('tuscany-7'));
   background-size: cover;
   margin-top: -10px;
   color: white;
@@ -144,7 +144,7 @@ margin-top: 10px;
 .dest_index {
   text-align: center;
   height: 350px;
-  background-image: url("elephants.jpg");
+  background-image: url(asset_path('elephants'));
   background-size: cover;
   margin-top: -10px;
   color: white;
@@ -200,7 +200,7 @@ label {
 .tips_index {
   text-align: center;
   height: 500px;
-  background-image: url("train.jpg");
+  background-image: url(asset_path('train'));
   background-size: cover;
   margin-top: -10px;
   color: white;
@@ -210,7 +210,7 @@ label {
 .tips_show {
  text-align: center;
   height: 400px;
-  background-image: url("map.jpg");
+  background-image: url(asset_path('map'));
   background-size: cover;
   margin-top: -10px;
   color: white;
@@ -230,7 +230,7 @@ label {
 .review_index {
   text-align: center;
   height: 350px;
-  background-image: url("lion.jpg");
+  background-image: url(asset_path('lion'));
   background-size: cover;
   background-position: center;
   margin-top: -10px;
