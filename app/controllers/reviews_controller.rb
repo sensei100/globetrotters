@@ -62,6 +62,11 @@ class ReviewsController < ApplicationController
     redirect_to reviews_path
   end
 
+  def review_data
+    @review = Review.find(params[:id])
+    render json: @review
+  end
+
   private
 
   def review_params

@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   resources :tips
   get 'welcome/index'
   root 'welcome#index'
+  get '/reviews/:id/review_data', to: 'reviews#review_data'
 end

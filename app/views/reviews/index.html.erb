@@ -8,14 +8,30 @@
 
   <% @reviews.each do |review| %>
     <p><%= link_to review.destination.name, destination_path(review.destination), class: "dest_name" %>
+    <div id="content-<%= review.id %>"><%= truncate review.content %></div><br>
+    <button class="js-more btn btn-small btn-primary" data-id="<%= review.id %>">More ...</button>
     </p>  
   <% end %> 
-<br><br>
+  <br><br>
+
   <h3>Didn't see the right place above?  Here are all the destinations available.</h3><br>
 
     <% @destinations.each do |dest| %>
     <p class="country"><%= dest.country %><br></p>
     <p><%= link_to dest.name, destination_path(dest), class: "dest_name" %></p> 
   <% end %> 
-</div>   
+</div>  
+
+
+<script type="text/javascript" charset="utf-8">
+$(function () {
+  $(".js-more").on('click', function() {
+    var id = $(this).data("id");
+    $.get("/reviews/" + id + "/review_data", function(data) {
+     
+      $("#content-" + id).text(data["content"]);
+    });
+  });
+});
+</script> 
   
