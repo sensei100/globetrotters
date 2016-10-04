@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
+  before_action :set_destination
 
   def create
-    @destination = Destination.find(params[:destination_id]) 
     @comment = @destination.comments.new(comment_params)
     
     if !current_user
@@ -12,8 +12,7 @@ class CommentsController < ApplicationController
     end
   end
 
-  def destroy
-    @destination = Destination.find(params[:destination_id])
+  def destroy 
     @comment = @destination.comments.find(params[:id])
     authorize @comment
     @comment.destroy
@@ -21,6 +20,10 @@ class CommentsController < ApplicationController
   end
 
   private
+
+  def set_destination
+    @destination = Destination.find(params[:destination_id])
+  end
 
   def comment_params
     params.require(:comment).permit(:content, :user_id)
