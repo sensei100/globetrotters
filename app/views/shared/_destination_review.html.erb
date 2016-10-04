@@ -24,7 +24,7 @@
     <div class="col-lg-4">
       <h3 class="show_subheading">Review</h3> 
       <% if @reviews.try(:any?) %>
-      <% @reviews.each do |review| %>
+      <% @reviews.take(1).each do |review| %>
      
         <h4 id="rating">Rating: <%= review.rating %></h4>
         <p id="reviewContent"><%= review.content %></p><br>
