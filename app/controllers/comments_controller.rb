@@ -1,6 +1,19 @@
 class CommentsController < ApplicationController
   before_action :set_destination
 
+  def index
+    @comments = @destination.comments.all
+    render json: @comments
+  end
+
+  def show
+    @comment = Comment.find(params[:id])
+      respond_to do |format|
+        format.html { render :show}
+        format.json { render json: @comment}
+      end
+    end
+
   def create
     @comment = @destination.comments.new(comment_params)
     
@@ -8,7 +21,7 @@ class CommentsController < ApplicationController
       redirect_to destination_path(@destination), alert: "You must be logged in to add a comment"
     else
       @comment.save
-      redirect_to destination_path(@destination)
+      redirect_to destination_comments_path(@destination)
     end
   end
 

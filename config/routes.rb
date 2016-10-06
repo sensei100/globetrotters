@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", registrations: 'registrations' }
   resources :destinations do
-    resources :comments, only: [:create, :destroy]
+    resources :comments
     resources :reviews
   end
   resources :reviews 

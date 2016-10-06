@@ -9,8 +9,8 @@ class DestinationsController < ApplicationController
     if !current_user
       redirect_to root_path, alert: "You must be logged in to continue."
     else
-      @reviews = @destination.reviews.all
-      @comments = @destination.comments.last(5)
+      @reviews = @destination.reviews
+      @comments = @destination.comments
       respond_to do |format|
         format.html { render :show }
         format.json { render json: @destination }

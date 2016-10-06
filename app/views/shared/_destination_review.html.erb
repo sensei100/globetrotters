@@ -15,10 +15,10 @@
         <strong>Country:</strong>
         <%= @destination.country %>
       </h3>
-      <%= link_to 'Add Review', new_destination_review_path(@destination, @review), class: "btn btn-sm btn-primary dest_button" %><br><br>
-      <%= link_to "Edit Destination", edit_destination_path(@destination), class: "btn btn-info btn-small dest_button" %><br><br>
-      <%= link_to 'Delete Destination', [@destination], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-warning btn-small dest_button" %><br><br>
-      <%= link_to "See all destinations", destinations_path, class: "btn btn-success btn-small dest_button" %>
+      <%= link_to 'Add Review', new_destination_review_path(@destination, @review), class: "btn btn-small btn-primary dest_button" %><br><br>
+      <%= link_to "Edit Destination", edit_destination_path(@destination), class: "btn btn-info btn-xs dest_button" %><br><br>
+      <%= link_to 'Delete Destination', [@destination], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-warning btn-xs dest_button" %><br><br>
+      <%= link_to "See all destinations", destinations_path, class: "btn btn-success btn-xs dest_button" %>
     </div>
   
     <div class="col-lg-4">
@@ -28,20 +28,25 @@
      
         <h4 id="rating">Rating: <%= review.rating %></h4>
         <p id="reviewContent"><%= review.content %></p><br>
-        <%= link_to "Edit Review", edit_review_path(review), class: "btn btn-info btn-small" %><br><br>
-        <%= link_to 'Delete Review', destination_review_path(@destination, review), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-warning btn-small" %><br><br>
-          <a href="#" class="js-next btn btn-primary btn-small" data-id="<%=review.id%>">Next Review</a>
-    <br>
+
+        <a href="#" class="js-next btn btn-primary btn-small" data-id="<%=review.id%>">Next Review</a><br><br>
+        <%= link_to "Edit Review", edit_review_path(review), class: "btn btn-info btn-xs" %><br><br>
+        <%= link_to 'Delete Review', destination_review_path(@destination, review), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-warning btn-xs" %><br><br>
+         
       <% end %>
       <% end %>
     </div>
 
     <div class="col-lg-4">
-      <h3 class="show_subheading">Comments</h3>
+       <h3 class="show_subheading">Comments</h3>
+     
       <%= render 'comments/comment' %>
-
-      <h4 class="comment_form">Add a comment:</h4>
+       <h4 class="comment_form">Add a comment:</h4>
       <%= render 'comments/form' %>
+      <%= link_to "Load Comments", destination_comments_path(@destination, @comments), class: "loadComments btn btn-info btn-xs" %>
+     
+      
+
     </div>
   </div>
 <script type="text/javascript" charset="utf-8">
@@ -56,5 +61,16 @@ $(function () {
       $(".js-next").attr("data-id", data["id"]);
     });
   });
-});
+
+
+$("a.loadComments").on("click", function(e){
+ 
+  $.get(this.href).success(function(response){
+    $("div.commentDiv").html(response) 
+    })
+    e.preventDefault();
+  })
+  }); 
+
+
 </script>
