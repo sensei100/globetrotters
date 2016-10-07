@@ -9,8 +9,8 @@ class User < ActiveRecord::Base
   validates :name, presence: true
   validates :email, uniqueness: true
 
-  has_many :reviews
-  has_many :comments
+  has_many :reviews, dependent: :destroy
+  has_many :comments, dependent: :destroy
   has_many :destinations, through: :reviews
   has_many :tips
 
