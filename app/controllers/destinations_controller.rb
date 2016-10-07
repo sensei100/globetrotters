@@ -34,7 +34,6 @@ class DestinationsController < ApplicationController
   def create
     @destination = Destination.new(destination_params)
     @destination.reviews.first.user = current_user
-     
     if @destination.save
       redirect_to @destination
     else
