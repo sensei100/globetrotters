@@ -65,8 +65,12 @@ $(function () {
 
 $("a.loadComments").on("click", function(e){
  
-  $.get(this.href).success(function(response){
-    $("div.commentDiv").html(response) 
+  $.get(this.href).success(function(json){
+    var $ol = $("div.commentDiv ol")
+    $ol.html("") 
+    json.forEach(function(comment) {
+      $ol.append("<li>" + comment.user.name + comment.content + "</li>");
+    })
     })
     e.preventDefault();
   })

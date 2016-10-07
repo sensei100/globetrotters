@@ -1,24 +1,14 @@
 <div class="commentDiv">
-  <% if @comments.try(:any?) %>
-    <% @comments.each do |comment| %>
-      <ol>
-      <li>
-        <p>
-          <strong>Name:</strong>
-          <%= comment.user.name %>    
-        </p>
-      
-        <p>
-          <strong>Comment:</strong>
-          <%= comment.content %>
-        </p>
-
-        <p>
-          <%= link_to 'Delete Comment', [comment.destination, comment], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-success btn-xs" %>
-        </p>
-      </li>
-      </ol>
-    <% end %>
-  <% end %>
+    <ol>
+         <li>
+           <% if current_user && current_user.id == comment.user.id %>
+          <br>
+          <br>
+          <%= link_to "Load Comments", destination_comments_path(@destination, @comments), class: "loadComments btn btn-info btn-xs" %>
+          <% end %>
+         </li>
+       
+     
+    </ol>
 </div>
 
