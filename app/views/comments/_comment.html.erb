@@ -1,14 +1,6 @@
 <div class="commentDiv">
     <ol>
-         <li>
-           <% if current_user && current_user.id == comment.user.id %>
-          <br>
-          <br>
-          <%= link_to "Load Comments", destination_comments_path(@destination, @comments), class: "loadComments btn btn-info btn-xs" %>
-          <% end %>
-         </li>
-       
-     
+      
     </ol>
 </div>
 
