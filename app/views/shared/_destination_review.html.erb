@@ -29,6 +29,7 @@
       <% @reviews.take(1).each do |review| %>
      
         <h4 id="rating">Rating: <%= review.rating %></h4>
+        <p id="author">By: <%= review.user.name %></p>
         <p id="reviewContent"><%= review.content %></p><br>
 
         <a href="#" class="js-next btn btn-primary btn-small" data-id="<%=review.id%>">Next Review</a><br><br>
