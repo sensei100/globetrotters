@@ -11,7 +11,6 @@ $(function () {
     });
   });
 
-
 $("a.loadComments").on("click", function(e){
  
   $.get(this.href).success(function(json){
@@ -24,3 +23,14 @@ $("a.loadComments").on("click", function(e){
     e.preventDefault();
   })
   }); 
+
+//JS Model Object for Review
+function Review(json) {
+  this.rating = json.rating;
+  this.content = json.content;
+  this.user = json.user.name;
+
+  this.numberOfReviews = function() {
+    return json.user.name + " has written " + json.user.reviews.size + " reviews.";
+  }
+}
