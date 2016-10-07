@@ -15,6 +15,7 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require destinations
+//= require reviews
 
 
 
