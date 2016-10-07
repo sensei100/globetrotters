@@ -69,7 +69,7 @@ $("a.loadComments").on("click", function(e){
     var $ol = $("div.commentDiv ol")
     $ol.html("") 
     json.forEach(function(comment) {
-      $ol.append("<li>" + comment.user.name + ": " + comment.content + "</li>");
+      $ol.append("<li>" + comment.user.name + ": <br>" + comment.content + "</li><br>");
     })
     })
     e.preventDefault();
