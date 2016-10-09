@@ -28,11 +28,13 @@
       <% if @reviews.try(:any?) %>
       <% @reviews.take(1).each do |review| %>
         <h4 id="rating">Rating: <%= review.rating %></h4>
-        <a href="#" id="show" class="btn btn-xs btn-success"><%= review.user.name %></a>
+        <button id="show" class="btn btn-xs btn-success"><%= review.user.name %></button>
         <div id="modal-container">
-        <div id="modal-box">
+        <section id="modal-box">
           <button id="hide">x</button>
-        </div>
+          <h2><%= review.user.name %></h2>
+          <div id="user_review_count"></div>
+        </section>
         </div>
         <p id="reviewContent"><%= review.content %></p><br>
 
@@ -57,37 +59,37 @@
   </div>
 
   <script>
-
-
-$(function() {
-  $("#show").on("click", function(event) { 
-    event.preventDefault();
-    $.get(this.href).success(function(json){
-  
-      var $ol = $("div.modal-box ol")
-      $ol.html("")
-     
-      $.ajax({
-        url: this.href, 
-        type: "GET",
-        dataType: 'json',
-        success: function(review){
-          var modalHtml = "<h2>" + review.user.name+ "<br>" + "Reviews written: " + review.user.review_count + "</h2>"
-        $ol.append(modalHtml);
-      }
-    });
-
+var modalContainer = $("#modal-container");
+ 
 var hideModal = function() {
   modalContainer.hide();
 };
  
+var showModal = function() {
+  modalContainer.show();
+};
+ 
+var modalShowButton = $("#show");
+modalShowButton.on("click", showModal);
+ 
 var modalCloseButton = $("#hide");
 modalCloseButton.on("click", hideModal);
-  
-})
-    })
+ 
+$(document).on("keyup", function(evt) {
+  evt = evt || window.event; // support IE
+ 
+  // if escape key is pressed, hide the modal
+  if (evt.keyCode === 27) {
+    hideModal();
+  }
+});
+
+$("a.show").on("click", function(event) {
+  event.preventDefault();
+  $.get(this.href).success(function(json) {
+    var $div = $("div.modal-container")
+    $div.html(" ");
+
   })
-
-    
-
+})
 </script>
