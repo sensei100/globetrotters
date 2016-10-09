@@ -43,13 +43,15 @@
 
     <div class="col-lg-4">
        <h3 class="show_subheading">Comments</h3>
-     
-      <%= render 'comments/comment' %>
+        
+        <%= render 'comments/comments' %>
+  
        <h4 class="comment_form">Add a comment:</h4>
       <%= render 'comments/form' %>
       <%= link_to "Load Comments", destination_comments_path(@destination, @comments), class: "loadComments btn btn-info btn-xs" %>
-     
-      
-
     </div>
   </div>
+
+  <script>
+
+</script>

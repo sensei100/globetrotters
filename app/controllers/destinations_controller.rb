@@ -11,6 +11,7 @@ class DestinationsController < ApplicationController
     else
       @reviews = @destination.reviews
       @comments = @destination.comments
+      @comment = @destination.comments.build
       respond_to do |format|
         format.html { render :show }
         format.json { render json: @destination }

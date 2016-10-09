@@ -21,7 +21,7 @@ class CommentsController < ApplicationController
       redirect_to destination_path(@destination), alert: "You must be logged in to add a comment"
     else
       @comment.save
-      redirect_to destination_comments_path(@destination)
+      render json: @comment, status: 201
     end
   end
 
