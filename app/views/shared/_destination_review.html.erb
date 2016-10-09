@@ -29,7 +29,13 @@
       <% @reviews.take(1).each do |review| %>
      
         <h4 id="rating">Rating: <%= review.rating %></h4>
-        <a href="#" id="show"><p id="author"><%= review.user.name %></p></a>
+      <button id="show" class="btn btn-xs btn-success"><%= review.user.name %></button>
+      <div id="modal-container">
+      <section id="modal-box">
+      <button id="hide">x</button>
+      <p>test</p>
+      </section>
+      </div>
         <p id="reviewContent"><%= review.content %></p><br>
 
         <a href="#" class="js-next btn btn-primary btn-small" data-id="<%=review.id%>">Next Review</a><br><br>
@@ -53,5 +59,28 @@
   </div>
 
   <script>
-
+var modalContainer = $("#modal-container");
+ 
+var hideModal = function() {
+  modalContainer.hide();
+};
+ 
+var showModal = function() {
+  modalContainer.show();
+};
+ 
+var modalShowButton = $("#show");
+modalShowButton.on("click", showModal);
+ 
+var modalCloseButton = $("#hide");
+modalCloseButton.on("click", hideModal);
+ 
+$(document).on("keyup", function(evt) {
+  evt = evt || window.event; // support IE
+ 
+  // if escape key is pressed, hide the modal
+  if (evt.keyCode === 27) {
+    hideModal();
+  }
+});
 </script>

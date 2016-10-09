@@ -253,3 +253,48 @@ label {
   margin-left: 50px;
 }
 
+#modal-container {
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    height: 100%;
+    left: 0px;
+    position: fixed;
+    top: 50%;
+    width: 100%; 
+}
+ 
+#modal-box {
+    background-color: #283D3E;
+    color: white;
+    border-radius: 5px;
+    border: 1px solid white;
+    margin: -300px auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 380px;
+    height: 200px;
+    padding: 10px;
+    text-align: left;
+    font-family: 'Lato', sans-serif;
+    font-size: 20px;
+}
+ 
+#show {
+    font-family: 'Lato', sans-serif;
+}
+ 
+#hide {
+    background: white;
+    border-radius: 15px;
+    color: #454545;
+    display: block;
+    float: right;
+    font-family: monospace;
+    font-size: 20px;
+    margin-right: -17px;
+    position: relative;
+    top: -18px;
+    width: 30px;
+}
+

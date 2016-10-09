@@ -1,27 +1,4 @@
-var modalContainer = $("#modal-container");
- 
-var hideModal = function() {
-  modalContainer.hide();
-};
- 
-var showModal = function() {
-  modalContainer.show();
-};
- 
-var modalShowDiv = $("#show");
-modalShowDiv.on("mouseover", showModal);
- 
-var modalCloseDiv = $("#hide");
-modalCloseDiv.off("mouseover", hideModal);
- 
-$(document).on("keyup", function(evt) {
-  evt = evt || window.event; // support IE
- 
-  // if escape key is pressed, hide the modal
-  if (evt.keyCode === 27) {
-    hideModal();
-  }
-});
+
   
 
   $(function () {
@@ -73,16 +50,5 @@ $("a.loadComments").on("click", function(e){
     e.preventDefault();
   })
   }); 
-
-//JS Model Object for Review
-function Review(json) {
-  this.rating = json.rating;
-  this.content = json.content;
-  this.user = json.user.name;
-
-  this.numberOfReviews = function() {
-    return json.user.name + " has written " + json.user.reviews.size + " reviews.";
-  }
-}
 
 
