@@ -36,6 +36,8 @@ class ReviewsController < ApplicationController
     @destination = Destination.find(params[:destination_id])
     @review = @destination.reviews.new(review_params)
     @review.user = current_user
+    current_user.review_count += 1
+    current_user.save
     
     if @review.save
       redirect_to destination_path(@destination)

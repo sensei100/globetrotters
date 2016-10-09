@@ -1,3 +1,28 @@
+var modalContainer = $("#modal-container");
+ 
+var hideModal = function() {
+  modalContainer.hide();
+};
+ 
+var showModal = function() {
+  modalContainer.show();
+};
+ 
+var modalShowDiv = $("#show");
+modalShowDiv.on("mouseover", showModal);
+ 
+var modalCloseDiv = $("#hide");
+modalCloseDiv.off("mouseover", hideModal);
+ 
+$(document).on("keyup", function(evt) {
+  evt = evt || window.event; // support IE
+ 
+  // if escape key is pressed, hide the modal
+  if (evt.keyCode === 27) {
+    hideModal();
+  }
+});
+  
 
   $(function () {
   $("#new_comment").on("submit", function(event) {
