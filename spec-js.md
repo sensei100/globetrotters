@@ -10,8 +10,10 @@ Specs:
        Destinations have many reviews and users have many reviews and comments
 - [x] Include at least one link that loads or updates a resource without reloading the page
        Load more comments, next review, More
-- [ ] Translate JSON responses into js model objects
-- [ ] At least one of the js model objects must have at least one method added by your code to the prototype
+- [x] Translate JSON responses into js model objects
+Comments are js model objects
+- [x] At least one of the js model objects must have at least one method added by your code to the prototype
+      Rendering CommentDisplay is added to the prototype
 
 Confirm
 - [x] You have a large number of small Git commits

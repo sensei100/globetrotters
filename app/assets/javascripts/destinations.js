@@ -31,8 +31,7 @@ $(function() {
     })
   })
 })
-    
-  
+      
 $(function () {
   $(".js-next").on("click", function(e) {
     e.preventDefault()
