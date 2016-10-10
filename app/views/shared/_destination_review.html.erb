@@ -30,11 +30,10 @@
         <h4 id="rating">Rating: <%= review.rating %></h4>
         <button id="show" class="btn btn-xs btn-success"><%= review.user.name %></button>
         <div id="modal-container">
-        <section id="modal-box">
+        <div id="modal-box">
           <button id="hide">x</button>
-          <h2><%= review.user.name %></h2>
-          <div id="user_review_count"></div>
-        </section>
+          <h2></h2>
+        </div>
         </div>
         <p id="reviewContent"><%= review.content %></p><br>
 
@@ -65,8 +64,15 @@ var hideModal = function() {
   modalContainer.hide();
 };
  
-var showModal = function() {
+var showModal = function(event) {
   modalContainer.show();
+  event.preventDefault();
+  $.getJSON("/destinations").success(function(destination) {
+    var $h2 = $("div.modal-box h2")
+    $h2.html(" ");
+    var modalHtml = "<h2>" + destination.name+ "<br>" + "Reviews written: "  + "</h2>"
+    $h2.append(modalHtml);
+  })
 };
  
 var modalShowButton = $("#show");
@@ -84,12 +90,4 @@ $(document).on("keyup", function(evt) {
   }
 });
 
-$("a.show").on("click", function(event) {
-  event.preventDefault();
-  $.get(this.href).success(function(json) {
-    var $div = $("div.modal-container")
-    $div.html(" ");
-
-  })
-})
 </script>

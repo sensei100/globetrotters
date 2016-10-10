@@ -14,7 +14,7 @@ class DestinationsController < ApplicationController
       @comment = @destination.comments.build
       respond_to do |format|
         format.html { render :show }
-        format.json { render json: @destination}
+        format.json { render json: @destination }
       end
     end
   end
