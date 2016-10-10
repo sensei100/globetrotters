@@ -1,32 +1,37 @@
- function Comment (id, content, user) {
-  this.id = id;
-  this.content = content;
+ function Comment(data) {
+  this.id = data.id;
+  this.content = data.content;
+  this.user = data.user;
   this.authenticity_token =  $("input[name='authenticity_token']").val();
 }
 
-Comment.prototype.createdComment = function() {
-   alert(this.content + " has been created.");
+Comment.prototype.renderDisplay = function() {
+  var html = "";
+  html += "<li>" + comment.user.name + ": <br>" + comment.content + "</li><br>";
 }
 
-function newComment() {
-  $("#new_comment").on("submit", function(event) {
+$(function() { 
+  $("form#new_comment").on("submit", function(event) {
     event.preventDefault();
-    var values = $(this).serialize();
-    var commenting = $.post(this.action, values)
-    commenting.done(function(data) {
-      var comment = data.comments;
-      $("#comment_content").val("");
-      createNewComment(comment);
-    });
-  })
-}
+    var $form = $(this);
+    var action = $form.attr("action");
+    var params = $form.serialize();
 
-  function createNewComment(comment) {
-    var commentObject = new Comment(comment.id, comment.content, comment.user)
-    var $ol = $("div.comments ol");
-    $ol.append("<li>" + comment.user.name + ": <br>" + comment.content + "</li>"
-      );
-  }
+    $.ajax({
+      url: action,
+      data: params,
+      dataType: "json",
+      method: "POST"
+    })
+    .success(function(json) {
+      var comment = new Comment(json);
+      var commentDisplay = comment.renderDisplay()
+
+      $('#comments ol').append(commentDisplay)
+    })
+  })
+})
+    
   
 $(function () {
   $(".js-next").on("click", function(e) {

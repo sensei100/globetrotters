@@ -28,13 +28,7 @@
       <% if @reviews.try(:any?) %>
       <% @reviews.take(1).each do |review| %>
         <h4 id="rating">Rating: <%= review.rating %></h4>
-        <button id="show" class="btn btn-xs btn-success"><%= review.user.name %></button>
-        <div id="modal-container">
-        <div id="modal-box">
-          <button id="hide">x</button>
-          <h2></h2>
-        </div>
-        </div>
+        
         <p id="reviewContent"><%= review.content %></p><br>
 
         <a href="#" class="js-next btn btn-primary btn-small" data-id="<%=review.id%>">Next Review</a><br><br>
