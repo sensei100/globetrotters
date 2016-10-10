@@ -56,38 +56,3 @@
       <%= link_to "Load Comments", destination_comments_path(@destination, @comments), class: "loadComments btn btn-info btn-xs" %>
     </div>
   </div>
-
-  <script>
-var modalContainer = $("#modal-container");
- 
-var hideModal = function() {
-  modalContainer.hide();
-};
- 
-var showModal = function(event) {
-  modalContainer.show();
-  event.preventDefault();
-  $.getJSON("/destinations").success(function(destination) {
-    var $h2 = $("div.modal-box h2")
-    $h2.html(" ");
-    var modalHtml = "<h2>" + destination.name+ "<br>" + "Reviews written: "  + "</h2>"
-    $h2.append(modalHtml);
-  })
-};
- 
-var modalShowButton = $("#show");
-modalShowButton.on("click", showModal);
- 
-var modalCloseButton = $("#hide");
-modalCloseButton.on("click", hideModal);
- 
-$(document).on("keyup", function(evt) {
-  evt = evt || window.event; // support IE
- 
-  // if escape key is pressed, hide the modal
-  if (evt.keyCode === 27) {
-    hideModal();
-  }
-});
-
-</script>
