@@ -6,8 +6,9 @@
 }
 
 Comment.prototype.renderDisplay = function() {
+  alert("Your comment was created");
   var html = "";
-  html += "<li>" + comment.user.name + ": <br>" + comment.content + "</li><br>";
+  html += "<p>" + this.user.name + ": <br>" + this.content + "</p><br>";
 }
 
 $(function() { 
@@ -25,9 +26,10 @@ $(function() {
     })
     .success(function(json) {
       var comment = new Comment(json);
-      var commentDisplay = comment.renderDisplay()
+      var commentDisplay = comment.renderDisplay();
 
-      $('#comments ol').append(commentDisplay)
+      $('#lastComment p').append(commentDisplay);
+
     })
   })
 })
