@@ -1,5 +1,6 @@
 function Review(data) {
   this.id = data.id;
+  this.rating = data.rating;
   this.content = data.content;
   this.user = data.user;
   this.authenticity_token =  $("input[name='authenticity_token']").val();
@@ -28,7 +29,7 @@ $(function() {
       var review = new Review(json);
       var reviewDisplay = review.renderDisplay();
 
-      $('#lastComment p').append(commentDisplay);
+      $('#lastReview p').append(reviewDisplay);
 
     })
   })
