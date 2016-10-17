@@ -6,8 +6,8 @@
 
 Comment.prototype.renderDisplay = function() {
   var html = "";
-  html += "<p>" + this.user.name + ": <br>" + this.content + "</p><br>";
-  $("#lastComment p").append(html);
+  html = "<p>" + this.user.name + ": <br>" + this.content + "</p><br>";
+  $("#lastComment p").text(html);
 }
 
 $(function() { 
@@ -33,17 +33,16 @@ $(function() {
 })
       
 $(function () {
-  $(".js-next").on("click", function(e) {
-    e.preventDefault()
-    var destId = parseInt($(".js-next").attr("data-destination"))
-    var nextId = parseInt($(".js-next").attr("data-id")) + 1;
-    $.get("/destinations/" + destId + "/reviews/" + nextId + ".json", function(data) {
-      $("#rating").text("Rating: " + data["rating"]);
-      $("#reviewContent").text(data["content"]);
-      // re-set the id to current on the link
-      $(".js-next").attr("data-id", data["id"]);
-    });
-  });
+ $(".js-next").on("click", function(e) {
+   e.preventDefault()
+   var destId = $(".js-next").attr("data-destination");
+   $.get("/destinations/" + destId + ".json", {'data-id': $(e.target).attr('data-id'), 'data-next': $(e.target).attr('data-next'), 'format': 'json'}).done( function(data){
+    $("#rating").text("Rating: " + data["rating"]);
+     $("#reviewContent").text(data["content"]);
+     // re-set the id to current on the link
+     $(".js-next").attr("data-id", data["id"]);
+   });
+ });
 
 $("a.loadComments").on("click", function(e){
   $.get(this.href).success(function(json){
