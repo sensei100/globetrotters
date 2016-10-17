@@ -2,13 +2,12 @@
   this.id = data.id;
   this.content = data.content;
   this.user = data.user;
-  this.authenticity_token =  $("input[name='authenticity_token']").val();
 }
 
 Comment.prototype.renderDisplay = function() {
-  alert("Your comment was created");
   var html = "";
   html += "<p>" + this.user.name + ": <br>" + this.content + "</p><br>";
+  $("#lastComment p").append(html);
 }
 
 $(function() { 
@@ -25,11 +24,10 @@ $(function() {
       method: "POST"
     })
     .success(function(json) {
+      $('#new_comment').hide();
       var comment = new Comment(json);
-      var commentDisplay = comment.renderDisplay();
-
-      $('#lastComment p').append(commentDisplay);
-
+      comment.renderDisplay();
+      
     })
   })
 })
@@ -37,8 +35,9 @@ $(function() {
 $(function () {
   $(".js-next").on("click", function(e) {
     e.preventDefault()
+    var destId = parseInt($(".js-next").attr("data-destination"))
     var nextId = parseInt($(".js-next").attr("data-id")) + 1;
-    $.get("/reviews/" + nextId + ".json", function(data) {
+    $.get("/destinations/" + destId + "/reviews/" + nextId + ".json", function(data) {
       $("#rating").text("Rating: " + data["rating"]);
       $("#reviewContent").text(data["content"]);
       // re-set the id to current on the link
