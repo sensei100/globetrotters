@@ -8,12 +8,10 @@ function Review(data) {
 
 Review.prototype.renderDisplay = function() {
   alert("Your review was created");
-  var html = "";
-  html += "<p>" + this.user.name + ": <br>" + this.content + "</p><br>";
 }
 
 $(function() { 
-  $("form#new_comment").on("submit", function(event) {
+  $("form#new_review").on("submit", function(event) {
     event.preventDefault();
     var $form = $(this);
     var action = $form.attr("action");
@@ -28,9 +26,6 @@ $(function() {
     .success(function(json) {
       var review = new Review(json);
       var reviewDisplay = review.renderDisplay();
-
-      $('#lastReview p').append(reviewDisplay);
-
     })
   })
 })
