@@ -1,5 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :name, :review_count
+  attributes :id, :name
 
   has_many :comments, :reviews
   

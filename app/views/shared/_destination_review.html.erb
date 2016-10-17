@@ -15,7 +15,7 @@
         <strong>Country:</strong>
         <%= @destination.country %>
       </h3>
-      <%= link_to 'Add Review', new_destination_review_path(@destination, @review), class: "btn btn-small btn-primary dest_button" %><br><br>
+      <%= link_to 'Add Review', new_destination_review_path(@destination), class: "btn btn-small btn-primary dest_button"%><br><br>
       <%= link_to "Edit Destination", edit_destination_path(@destination), class: "btn btn-info btn-xs dest_button" %><br><br>
       <% if current_user.admin? %>
       <%= link_to 'Delete Destination', [@destination], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-warning btn-xs dest_button" %><br><br>
@@ -30,7 +30,9 @@
         <h4 id="rating">Rating: <%= review.rating %></h4>
         
         <p id="reviewContent"><%= review.content %></p><br>
-
+        <div id="reviews">
+          <p></p>
+        </div>
         <a href="#" class="js-next btn btn-primary btn-small" data-id="<%=review.id%>">Next Review</a><br><br>
         <% if review.user_id == current_user.id %>
         <%= link_to "Edit Review", edit_review_path(review), class: "btn btn-info btn-xs" %><br><br>
@@ -38,6 +40,7 @@
         <% end %> 
       <% end %>
       <% end %>
+
     </div>
 
     <div class="col-lg-4">
