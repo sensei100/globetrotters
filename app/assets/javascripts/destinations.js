@@ -33,6 +33,7 @@ $(function() {
 
 // add disabled class to the last one?
 // add author info and review count?
+// possible hover card or modal box for user info?
 
 $(function () {
 
@@ -41,7 +42,6 @@ $(function () {
     $("#reviewContent").text(data["reviews"][index].content);
   }
 
-  var data = [];
   var index = 0;
   var destId = $(".js-next").attr("data-destination");
 
@@ -62,7 +62,6 @@ $(function () {
     }
   });
 })
-
 
 // do I need to include destination_id?
 // do I even need this object?
