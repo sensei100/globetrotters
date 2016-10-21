@@ -31,9 +31,9 @@
         
         <p id="reviewContent"><%= review.content %></p><br>
 
-        <a href="#" class="js-previous btn btn-primary btn-small" disabled data-id="<%=review.id%>" data-destination="<%= @destination.id %>">Previous Review</a><br><br>
+        <a href="#" class="js-previous btn btn-primary btn-xs" disabled data-id="<%=review.id%>" data-destination="<%= @destination.id %>">Previous Review</a>
        
-        <a href="#" class="js-next btn btn-primary btn-small" data-id="<%=review.id%>" data-destination="<%= @destination.id %>">Next Review</a><br><br>
+        <a href="#" class="js-next btn btn-primary btn-xs" data-id="<%=review.id%>" data-destination="<%= @destination.id %>">Next Review</a><br><br>
         <% if review.user_id == current_user.id %>
         <%= link_to "Edit Review", edit_review_path(review), class: "btn btn-info btn-xs" %><br><br>
         <%= link_to 'Delete Review', destination_review_path(@destination, review), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-warning btn-xs" %><br><br>
