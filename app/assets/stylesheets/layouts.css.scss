@@ -253,3 +253,9 @@ label {
   margin-left: 50px;
 }
 
+.btn[disabled] {
+  background-color: #ececec;
+  color: black;
+  border: #ececec;
+}
+
