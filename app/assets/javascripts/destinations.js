@@ -41,9 +41,10 @@ $(function () {
     $("#rating").text("Rating: " + data["reviews"][index].rating);
     $("#reviewContent").text(data["reviews"][index].content);
   }
-
+  var data = [];
   var index = 0;
   var destId = $(".js-next").attr("data-destination");
+
 
   $.ajax({
     url: "/destinations/" + destId + ".json",
@@ -55,10 +56,48 @@ $(function () {
     } 
   });
 
+  // function addClick(which) {
+  //   $(".js-" + which).on("click", function(e) { 
+  //     var = conditional
+  //     if (which === 'next') {
+  //       conditional = (index < data["reviews"].length - 1 )
+  //       $(".js-" + 'previous').attr("disabled", false);
+  //       index += 1
+  //     } else {
+  //      conditional =  (index < data["reviews"].length - 1 )
+  //       $(".js-" + 'next').attr("disabled", false);
+  //       index -= 1
+  //   if (conditional) {
+  //     reviews();
+  //     if (index === data["reviews"].length - 1) {
+  //       $(this).attr("disabled", true);
+  //     }
+  //   }
+  // });
+  // }
+
+  // addClick('next')
+  // addClick('previous')
+
   $(".js-next").on("click", function(e) { 
-    if (index < data["reviews"].length - 1) {
+    if (index < data["reviews"].length - 1 ) {
+      $(".js-previous").attr("disabled", false);
       index += 1;
       reviews();
+      if (index === data["reviews"].length - 1) {
+        $(this).attr("disabled", true);
+      }
+    }
+  });
+
+    $(".js-previous").on("click", function(e) { 
+    if (index > 0) {
+      $(".js-next").attr("disabled", false);
+      index -= 1;
+      reviews();
+    } 
+    if (index === 0) {
+      $(this).attr("disabled", true);
     }
   });
 })

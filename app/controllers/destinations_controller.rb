@@ -2,7 +2,7 @@ class DestinationsController < ApplicationController
   before_filter :find_destination, only: [:show, :edit, :update]
 
   def index
-    @destinations = Destination.alphabetically
+    @destinations = Destination.group_by_country
   end
 
   def show

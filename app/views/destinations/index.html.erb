@@ -6,10 +6,12 @@
 
 </div>
 
-  <% @destinations.each do |destination| %>
+  <% @destinations.each do |country, destinations| %>
     <div>
-      <p class="country"><%= destination.country %></p>
+      <p class="country"><%= country %></p>
+      <% destinations.each do |destination| %>
       <p><%= link_to destination.name, destination_path(destination), class: "dest_name" %></p> 
-    </div>   
+    </div>  
+     <% end %> 
   <% end %> 
 

@@ -18,4 +18,8 @@ class Destination < ActiveRecord::Base
     end
   end
 
+  def self.group_by_country
+    alphabetically.group_by(&:country)
+  end
+
 end
